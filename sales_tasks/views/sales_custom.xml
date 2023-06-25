@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+    <record id="custom_sales_orders_view_form_id" model="ir.ui.view">
+      <field name="name">Sale Order</field>
+      <field name="model">sale.order</field>
+      <field name="inherit_id" ref="sale.view_order_form"/>
+      <field name="arch" type="xml">
+
+        <!--        <xpath expr="//field[@name='order_line']/tree/field[@name='product_id']" position="after">-->
+        <!--          <field name="order_line_image" widget="image"-->
+        <!--                 style="height:30px ;width:30px;" readonly="1" invisible="1"/>-->
+        <!--        </xpath>-->
+        <!--        <xpath expr="/form/sheet/notebook/page/field[@name='order_line']/tree/field[@name='product_id']"-->
+        <!--               position="attributes">-->
+        <!--          <attribute name="domain">[('categ_id','=',catg_id),('purchase_ok','=',-->
+        <!--            True), '|', ('company_id', '=', False),('company_id', '=', parent.company_id)]-->
+        <!--          </attribute>-->
+        <!--        </xpath>-->
+
+        <xpath expr="/form/sheet/notebook/page/field[@name='order_line']" position="after">
+          <field name="vendor_line" widget="section_and_note_one2many" mode="tree,kanban"
+                 context="{'default_state': 'draft'}" attrs="{'readonly': [('state', 'in', ('done', 'cancel'))]}">
+            <tree string="Vendor Order Lines" editable="bottom">
+              <field name="sproduct_id"/>
+              <field name="svendor_name"/>
+              <field name="s_currency" options="{'no_create': True, 'no_open': True}" id="company_currency"
+                     context="{'active_test': True}"/>
+              <field name="sprice"/>
+            </tree>
+          </field>
+        </xpath>
+
+        <!--        <xpath expr="//notebook/page/field[@name='order_line']//field[@name='product_qty']" position="after">-->
+        <!--          <field name="unit_cost"/>-->
+        <!--          <field name="total_cost"/>-->
+        <!--        </xpath>-->
+
+      </field>
+    </record>
+  </data>
+</odoo>
+

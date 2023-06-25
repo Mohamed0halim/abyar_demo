@@ -1,0 +1,36 @@
+<odoo>
+  <data>
+
+    <record id="inherit_custom_move_form_view" model="ir.ui.view">
+      <field name="name">view.move.form.inherit</field>
+      <field name="model">account.move</field>
+      <field name="inherit_id" ref="account.view_move_form"/>
+      <field name="arch" type="xml">
+
+        <xpath expr="//field[@name='invoice_line_ids']" position="after">
+          <field name="acc_vendor_line" widget="section_and_note_one2many"
+                 mode="tree,kanban"
+                 context="{'default_state': 'draft'}"
+                 attrs="{'readonly': [('state', 'in', ('posted', 'cancel'))]}">
+            <!--                 attrs="{'invisible':[('acc_vendor_line', '=', False)], 'readonly': [('state', 'in', ('posted', 'cancel'))]}">-->
+            <tree string="Vendor Order Lines" editable="bottom">
+              <field name="sproduct_id"/>
+              <field name="svendor_name"/>
+              <field name="sprice"/>
+            </tree>
+          </field>
+        </xpath>
+
+        <xpath expr="//field[@name='invoice_line_ids']/tree//field[@name='account_id']" position="after">
+          <field name="fees_or_receipts" optional="show"/>
+        </xpath>
+
+        <xpath expr="//field[@name='line_ids']/tree/field[@name='name']" position="after">
+          <field name="fees_or_receipts" invisible="1"/>
+        </xpath>
+
+      </field>
+    </record>
+
+  </data>
+</odoo>

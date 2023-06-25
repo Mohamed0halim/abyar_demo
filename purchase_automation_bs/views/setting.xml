@@ -1,0 +1,42 @@
+<odoo>
+  <data>
+     <record id="res_config_setting_purchase_view_inherit" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.purchase.automation</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="purchase.res_config_settings_view_form_purchase" />
+        <field name="arch" type="xml">
+            <xpath expr="//div[@name='purchase_setting_container']" position="after">
+                <h2 class="mt32">Purchase Automation</h2>
+                <div class="row mt16 o_settings_container">
+                    <div class="col-12 col-lg-6 o_setting_box"
+                         title="If no default value found will confirm after approval if need.">
+                        <div class="o_setting_right_pane">
+                            <label for="done_without_approval"/>
+                            <div class="text-muted">
+                                Done Receipt and Create Invoice with/without Approval
+                            </div>
+                            <div class="content-group">
+                                <div class="mt16">
+                                    <field name="done_without_approval" class="o_light_label" widget="radio"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+
+      <record id="view_purchase_order_form_inherit" model="ir.ui.view">
+        <field name="name">purchase.order.form.inherit</field>
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="purchase.purchase_order_form"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//button[@name='button_confirm']" position="attributes">
+                <attribute name="confirm">Please Be Sure after Confirm the Receipt will automatically go the done state and an invoice will create Automatically. </attribute>
+            </xpath>
+        </field>
+    </record>
+  </data>
+</odoo>

@@ -1,0 +1,28 @@
+<odoo>
+  <data>
+
+    <record id="general_action_weekly_account_statement" model="ir.actions.act_window">
+      <field name="name">general weekly Account Statement Invoice</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="res_model">weekly.general</field>
+      <field name="view_mode">form</field>
+      <field name="target">new</field>
+    </record>
+
+    <record id="general_inherit_view_move_form" model="ir.ui.view">
+      <field name="name">view.move.form.inherit</field>
+      <field name="model">account.move</field>
+      <field name="inherit_id" ref="account.view_move_form"/>
+      <field name="arch" type="xml">
+        <xpath expr="//header" position="inside">
+          <button name="%(general_weekly_account_statement_for_c.general_action_weekly_account_statement)d"
+                  string="General Weekly Statement" class="oe_highlight" type="action"
+                  attrs="{'invisible': [('move_type', '!=', 'in_invoice')]}"
+          />
+        </xpath>
+
+      </field>
+    </record>
+
+  </data>
+</odoo>

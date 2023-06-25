@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+
+    <record id="inherit_account_view_move_form" model="ir.ui.view">
+      <field name="name">account.move</field>
+      <field name="model">account.move</field>
+      <field name="inherit_id" ref="account.view_move_form"/>
+      <field name="arch" type="xml">
+
+        <xpath expr="//div[@class='oe_title']" position="inside">
+          <span class="o_form_label">
+            <field name="processing_or_clearance" widget="radio" options="{'horizontal': true}"
+                   attrs="{'invisible': [('move_type', '!=', 'out_invoice')], 'readonly': [('state', '!=', 'draft')]}"
+                   nolabel="1"/>
+          </span>
+        </xpath>
+
+        <xpath expr="//group[@id='header_left_group']" position="inside">
+          <field name="contact_person"
+                 attrs="{'invisible': ['|', ('processing_or_clearance', 'in', ('clearance', False)),
+                     ('move_type', '!=', 'out_invoice')]}"/>
+          <field name="contract_num"
+                 attrs="{'invisible': ['|', ('processing_or_clearance', 'in', ('clearance', False)),
+                     ('move_type', '!=', 'out_invoice')]}"/>
+          <field name="contract_titel"
+                 attrs="{'invisible': ['|', ('processing_or_clearance', 'in', ('clearance', False)),
+                      ('move_type', '!=', 'out_invoice')]}"/>
+          <field name="gr_number"
+                 attrs="{'invisible': ['|', ('processing_or_clearance', 'in', ('clearance', False)),
+                     ('move_type', '!=', 'out_invoice')]}"/>
+          <field name="inv_department"
+                 attrs="{'invisible': ['|', ('processing_or_clearance', 'in', ('clearance', False)),
+                     ('move_type', '!=', 'out_invoice')]}"/>
+        </xpath>
+        <xpath expr="//group[@id='header_right_group']" position="inside">
+          <field name="inv_currency" invisible="1"/>
+          <!--                 attrs="{'invisible': ['|', ('processing_or_clearance', 'in', ('clearance', False)),-->
+          <!--                     ('move_type', '!=', 'out_invoice')]}"/>-->
+          <field name="Period_of_performance"
+                 attrs="{'invisible': ['|', ('processing_or_clearance', 'in', ('clearance', False)),
+                     ('move_type', '!=', 'out_invoice')]}"/>
+          <field name="description_of_services"
+                 attrs="{'invisible': ['|', ('processing_or_clearance', 'in', ('clearance', False)),
+                     ('move_type', '!=', 'out_invoice')]}"/>
+          <field name="service_order_no"
+                 attrs="{'invisible': ['|', ('processing_or_clearance', 'in', ('clearance', False)),
+                     ('move_type', '!=', 'out_invoice')]}"/>
+          <!--            </group>-->
+        </xpath>
+
+        <xpath expr="//field[@name='invoice_line_ids']/tree//field[@name='price_subtotal']" position="before">
+          <field name="note" optional="show"/>
+        </xpath>
+
+        <xpath expr="//field[@name='line_ids']/tree/field[@name='name']" position="after">
+          <field name="note" invisible="1"/>
+        </xpath>
+
+      </field>
+    </record>
+
+
+  </data>
+</odoo>
+

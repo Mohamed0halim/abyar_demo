@@ -1,0 +1,325 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* report_invoice_processing
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-05-29 01:05+0000\n"
+"PO-Revision-Date: 2023-05-29 01:05+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: report_invoice_processing
+#: model:ir.actions.report,name:report_invoice_processing.report_invoice_processing_report_id
+msgid " طباعـة فـاتـورة التجهيـز "
+msgstr ""
+
+#. module: report_invoice_processing
+#: model_terms:ir.ui.view,arch_db:report_invoice_processing.template_report_invoice_processing
+msgid "0025-009808-001"
+msgstr ""
+
+#. module: report_invoice_processing
+#: model_terms:ir.ui.view,arch_db:report_invoice_processing.template_report_invoice_processing
+msgid ""
+"<br/>\n"
+"                      <br/>\n"
+"                      <br/>\n"
+"                      Bank Details :"
+msgstr ""
+
+#. module: report_invoice_processing
+#: model_terms:ir.ui.view,arch_db:report_invoice_processing.template_report_invoice_processing
+msgid "A. DESCRIPTION OF SUPPLY"
+msgstr ""
+
+#. module: report_invoice_processing
+#: model_terms:ir.ui.view,arch_db:report_invoice_processing.template_report_invoice_processing
+msgid "ABYAR ALRUMAILA COMPANY"
+msgstr ""
+
+#. module: report_invoice_processing
+#: model_terms:ir.ui.view,arch_db:report_invoice_processing.template_report_invoice_processing
+msgid "Bank Account :"
+msgstr ""
+
+#. module: report_invoice_processing
+#: model_terms:ir.ui.view,arch_db:report_invoice_processing.template_report_invoice_processing
+msgid "Bank Address :"
+msgstr ""
+
+#. module: report_invoice_processing
+#: model_terms:ir.ui.view,arch_db:report_invoice_processing.template_report_invoice_processing
+msgid "Bank Name:"
+msgstr ""
+
+#. module: report_invoice_processing
+#: model_terms:ir.ui.view,arch_db:report_invoice_processing.template_report_invoice_processing
+msgid "Beneficiary Name:"
+msgstr ""
+
+#. module: report_invoice_processing
+#: model:ir.model.fields.selection,name:report_invoice_processing.selection__account_move__processing_or_clearance__clearance
+msgid "Clearance"
+msgstr "تخليص"
+
+#. module: report_invoice_processing
+#: model_terms:ir.ui.view,arch_db:report_invoice_processing.template_report_invoice_processing
+msgid "Client Name:"
+msgstr ""
+
+#. module: report_invoice_processing
+#: model:ir.model.fields,field_description:report_invoice_processing.field_account_bank_statement_line__contact_person
+#: model:ir.model.fields,field_description:report_invoice_processing.field_account_move__contact_person
+#: model:ir.model.fields,field_description:report_invoice_processing.field_account_payment__contact_person
+msgid "Contact Person"
+msgstr "الشخص الذي يمكن الاتصال به"
+
+#. module: report_invoice_processing
+#: model_terms:ir.ui.view,arch_db:report_invoice_processing.template_report_invoice_processing
+msgid "Contact person:"
+msgstr ""
+
+#. module: report_invoice_processing
+#: model:ir.model.fields,field_description:report_invoice_processing.field_account_bank_statement_line__contract_num
+#: model:ir.model.fields,field_description:report_invoice_processing.field_account_move__contract_num
+#: model:ir.model.fields,field_description:report_invoice_processing.field_account_payment__contract_num
+msgid "Contract Number"
+msgstr "رقم العقد"
+
+#. module: report_invoice_processing
+#: model_terms:ir.ui.view,arch_db:report_invoice_processing.template_report_invoice_processing
+msgid "Contract Number:"
+msgstr ""
+
+#. module: report_invoice_processing
+#: model:ir.model.fields,field_description:report_invoice_processing.field_account_bank_statement_line__contract_titel
+#: model:ir.model.fields,field_description:report_invoice_processing.field_account_move__contract_titel
+#: model:ir.model.fields,field_description:report_invoice_processing.field_account_payment__contract_titel
+msgid "Contract Title"
+msgstr ""
+
+#. module: report_invoice_processing
+#: model_terms:ir.ui.view,arch_db:report_invoice_processing.template_report_invoice_processing
+msgid "Contract Title:"
+msgstr ""
+
+#. module: report_invoice_processing
+#: model:ir.model.fields,field_description:report_invoice_processing.field_account_bank_statement_line__inv_currency
+#: model:ir.model.fields,field_description:report_invoice_processing.field_account_move__inv_currency
+#: model:ir.model.fields,field_description:report_invoice_processing.field_account_payment__inv_currency
+msgid "Currency"
+msgstr "العمله"
+
+#. module: report_invoice_processing
+#: model_terms:ir.ui.view,arch_db:report_invoice_processing.template_report_invoice_processing
+msgid "Currency:"
+msgstr ""
+
+#. module: report_invoice_processing
+#: model_terms:ir.ui.view,arch_db:report_invoice_processing.template_report_invoice_processing
+msgid "Date:"
+msgstr ""
+
+#. module: report_invoice_processing
+#: model:ir.model.fields,field_description:report_invoice_processing.field_account_bank_statement_line__inv_department
+#: model:ir.model.fields,field_description:report_invoice_processing.field_account_move__inv_department
+#: model:ir.model.fields,field_description:report_invoice_processing.field_account_payment__inv_department
+msgid "Department"
+msgstr "القسم"
+
+#. module: report_invoice_processing
+#: model_terms:ir.ui.view,arch_db:report_invoice_processing.template_report_invoice_processing
+msgid "Department ："
+msgstr ""
+
+#. module: report_invoice_processing
+#: model_terms:ir.ui.view,arch_db:report_invoice_processing.template_report_invoice_processing
+msgid "Description"
+msgstr ""
+
+#. module: report_invoice_processing
+#: model:ir.model.fields,field_description:report_invoice_processing.field_account_bank_statement_line__description_of_services
+#: model:ir.model.fields,field_description:report_invoice_processing.field_account_move__description_of_services
+#: model:ir.model.fields,field_description:report_invoice_processing.field_account_payment__description_of_services
+msgid "Description Of Services"
+msgstr "وصف الخدمات"
+
+#. module: report_invoice_processing
+#: model_terms:ir.ui.view,arch_db:report_invoice_processing.template_report_invoice_processing
+msgid "Description of Services:"
+msgstr ""
+
+#. module: report_invoice_processing
+#: model:ir.model.fields.selection,name:report_invoice_processing.selection__account_move__inv_department__finance_dept
+msgid "Finance Dept"
+msgstr ""
+
+#. module: report_invoice_processing
+#: model_terms:ir.ui.view,arch_db:report_invoice_processing.template_report_invoice_processing
+msgid "GR No:"
+msgstr ""
+
+#. module: report_invoice_processing
+#: model:ir.model.fields,field_description:report_invoice_processing.field_account_bank_statement_line__gr_number
+#: model:ir.model.fields,field_description:report_invoice_processing.field_account_move__gr_number
+#: model:ir.model.fields,field_description:report_invoice_processing.field_account_payment__gr_number
+msgid "Gr No"
+msgstr ""
+
+#. module: report_invoice_processing
+#: model_terms:ir.ui.view,arch_db:report_invoice_processing.template_report_invoice_processing
+msgid "IBAN:"
+msgstr ""
+
+#. module: report_invoice_processing
+#: model_terms:ir.ui.view,arch_db:report_invoice_processing.template_report_invoice_processing
+msgid "IQ77 TRIQ 9760 2500 9808 001"
+msgstr ""
+
+#. module: report_invoice_processing
+#: model_terms:ir.ui.view,arch_db:report_invoice_processing.template_report_invoice_processing
+msgid "IRAQ / BAGHDAD / BABYLON MALL"
+msgstr ""
+
+#. module: report_invoice_processing
+#: model_terms:ir.ui.view,arch_db:report_invoice_processing.template_report_invoice_processing
+msgid "Invoice Number:"
+msgstr ""
+
+#. module: report_invoice_processing
+#: model_terms:ir.ui.view,arch_db:report_invoice_processing.template_report_invoice_processing
+msgid "Item"
+msgstr ""
+
+#. module: report_invoice_processing
+#: model:ir.model,name:report_invoice_processing.model_account_move
+msgid "Journal Entry"
+msgstr "قيد اليومية"
+
+#. module: report_invoice_processing
+#: model:ir.model,name:report_invoice_processing.model_account_move_line
+msgid "Journal Item"
+msgstr "عنصر اليومية"
+
+#. module: report_invoice_processing
+#: model_terms:ir.ui.view,arch_db:report_invoice_processing.template_report_invoice_processing
+msgid "Logo"
+msgstr ""
+
+#. module: report_invoice_processing
+#: model_terms:ir.ui.view,arch_db:report_invoice_processing.template_report_invoice_processing
+msgid "Name"
+msgstr ""
+
+#. module: report_invoice_processing
+#: model_terms:ir.ui.view,arch_db:report_invoice_processing.template_report_invoice_processing
+msgid "Name:"
+msgstr ""
+
+#. module: report_invoice_processing
+#: model:ir.model.fields,field_description:report_invoice_processing.field_account_move_line__note
+msgid "Note"
+msgstr "ملاحظة"
+
+#. module: report_invoice_processing
+#: model_terms:ir.ui.view,arch_db:report_invoice_processing.template_report_invoice_processing
+msgid "On behalf of Contractor"
+msgstr ""
+
+#. module: report_invoice_processing
+#: model:ir.model.fields,field_description:report_invoice_processing.field_account_bank_statement_line__Period_of_performance
+#: model:ir.model.fields,field_description:report_invoice_processing.field_account_move__Period_of_performance
+#: model:ir.model.fields,field_description:report_invoice_processing.field_account_payment__Period_of_performance
+msgid "Period Of Performance"
+msgstr "فترة تحسين"
+
+#. module: report_invoice_processing
+#: model_terms:ir.ui.view,arch_db:report_invoice_processing.template_report_invoice_processing
+msgid "Period of Performance:"
+msgstr ""
+
+#. module: report_invoice_processing
+#: model_terms:ir.ui.view,arch_db:report_invoice_processing.template_report_invoice_processing
+msgid "Price"
+msgstr ""
+
+#. module: report_invoice_processing
+#: model:ir.model.fields.selection,name:report_invoice_processing.selection__account_move__processing_or_clearance__processing
+msgid "Processing"
+msgstr "التجهيز"
+
+#. module: report_invoice_processing
+#: model_terms:ir.ui.view,arch_db:report_invoice_processing.template_report_invoice_processing
+msgid "Qty"
+msgstr ""
+
+#. module: report_invoice_processing
+#: model_terms:ir.ui.view,arch_db:report_invoice_processing.template_report_invoice_processing
+msgid "Remark"
+msgstr ""
+
+#. module: report_invoice_processing
+#: model_terms:ir.ui.view,arch_db:report_invoice_processing.template_report_invoice_processing
+msgid "SWIFT Code:"
+msgstr ""
+
+#. module: report_invoice_processing
+#: model:ir.model.fields,field_description:report_invoice_processing.field_account_bank_statement_line__service_order_no
+#: model:ir.model.fields,field_description:report_invoice_processing.field_account_move__service_order_no
+#: model:ir.model.fields,field_description:report_invoice_processing.field_account_payment__service_order_no
+msgid "Service Order No"
+msgstr "رقم طلب الخدمة"
+
+#. module: report_invoice_processing
+#: model_terms:ir.ui.view,arch_db:report_invoice_processing.template_report_invoice_processing
+msgid "Service Order No:"
+msgstr ""
+
+#. module: report_invoice_processing
+#: model_terms:ir.ui.view,arch_db:report_invoice_processing.template_report_invoice_processing
+msgid "Signature:"
+msgstr ""
+
+#. module: report_invoice_processing
+#: model_terms:ir.ui.view,arch_db:report_invoice_processing.template_report_invoice_processing
+msgid "TRADE BANK OF IRAQ"
+msgstr ""
+
+#. module: report_invoice_processing
+#: model_terms:ir.ui.view,arch_db:report_invoice_processing.template_report_invoice_processing
+msgid "TRIQIQBA"
+msgstr ""
+
+#. module: report_invoice_processing
+#: model_terms:ir.ui.view,arch_db:report_invoice_processing.template_report_invoice_processing
+msgid "Total Value in USD"
+msgstr ""
+
+#. module: report_invoice_processing
+#: model:ir.model.fields,field_description:report_invoice_processing.field_account_bank_statement_line__processing_or_clearance
+#: model:ir.model.fields,field_description:report_invoice_processing.field_account_move__processing_or_clearance
+#: model:ir.model.fields,field_description:report_invoice_processing.field_account_payment__processing_or_clearance
+msgid "Type"
+msgstr ""
+
+#. module: report_invoice_processing
+#: model_terms:ir.ui.view,arch_db:report_invoice_processing.template_report_invoice_processing
+msgid "Unit"
+msgstr ""
+
+#. module: report_invoice_processing
+#: model:ir.model.fields.selection,name:report_invoice_processing.selection__account_move__inv_currency__u_s
+msgid "United States Dollars"
+msgstr ""
+
+#. module: report_invoice_processing
+#: model_terms:ir.ui.view,arch_db:report_invoice_processing.template_report_invoice_processing
+msgid "subtotal"
+msgstr ""

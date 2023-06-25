@@ -1,0 +1,54 @@
+<odoo>
+  <data>
+    <record id="action_ageneral_weekly_vendor" model="ir.actions.act_window">
+      <field name="name">ageneral weekly account statement for the vendor Wizard Report</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="res_model">vendor.wizard</field>
+      <field name="view_mode">form</field>
+      <field name="target">new</field>
+    </record>
+
+    <record id="general_custom_view_move_form_inherit" model="ir.ui.view">
+      <field name="name">view.move.form.inherit.branch</field>
+      <field name="model">account.move</field>
+      <field name="inherit_id" ref="account.view_move_form"/>
+      <field name="arch" type="xml">
+        <xpath expr="//header" position="inside">
+          <button name="%(ageneral_weekly_account_statement_for_the_vendor.action_ageneral_weekly_vendor)d"
+                  string="كشـف حسـاب اسبوعي للمورد(جديد)" class="oe_highlight" type="action"
+                  attrs="{'invisible': [('move_type', '!=', 'in_invoice')]}"
+          />
+          <!--                            attrs="{'invisible': [('move_type', '=', 'in_invoice')]}"-->
+
+          <!--                  context="{'default_lead_id': active_id}"-->
+          <!--          </button>-->
+        </xpath>
+        <!--        <xpath expr="//div[@class='oe_title']" position="inside">-->
+        <xpath expr="//field[@name='partner_id']" position="after">
+<!--          <span class="o_form_label">-->
+<!--            <label for="name_of_bill" string="اسـم الفاتورة" style="font-weight:bold;"/>-->
+            <field name="name_of_bill"/>
+<!--          </span>-->
+        </xpath>
+
+        <!--        <xpath expr="//field[@name='ref']" position="before">-->
+        <!--          <field name="name_of_bill" />-->
+        <!--        </xpath>-->
+        <xpath expr="//field[@name='invoice_line_ids']/tree//field[@name='account_id']" position="after">
+<!--          <field name="fees_or2_receipts2" optional="show"/>-->
+          <field name="custom_date" optional="show"/>
+          <field name="custom_notes" optional="show"/>
+        </xpath>
+
+        <xpath expr="//field[@name='line_ids']/tree/field[@name='name']" position="after">
+<!--          <field name="fees_or2_receipts2" invisible="1"/>-->
+          <field name="custom_date" invisible="1"/>
+          <field name="custom_notes" invisible="1"/>
+        </xpath>
+
+      </field>
+    </record>
+
+
+  </data>
+</odoo>

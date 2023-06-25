@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_iq_user_journals_iq_user_journals,iq_user_journals.iq_user_journals,model_iq_user_journals_iq_user_journals,base.group_user,1,1,1,1

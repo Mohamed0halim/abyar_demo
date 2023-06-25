@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+    	<record id="account_payment_form_inherited" model="ir.ui.view">
+                <field name="name">account.payment.form.inherited</field>
+                <field name="model">account.payment</field>
+                <field name="inherit_id" ref="account.view_account_payment_form"/>
+                <field name="arch" type="xml">
+                    <xpath expr="//field[@name='partner_bank_id']" position="after">
+                        <field name="total_amount_invoice" force_save="1"/>
+                    </xpath>
+                    <xpath expr='//sheet' position="inside">
+                    	<separator string="Invoices" attrs="{'invisible': ['|', ('payment_type', 'not in', ['inbound', 'outbound']), ('partner_type', 'not in', ['customer', 'supplier'])]}"/>
+                        <!-- <field name="payment_invoice_ids" invisible="1">
+                        	<tree editable="bottom" create="false">
+                        		<field name="invoice_id" readonly="1" force_save="1"/>
+                                <field name="origin" readonly="1" />
+                                <field name="date_invoice" />
+                                <field name="date_due"/>
+                                <field name="amount_total"/>
+                                <field name="residual"/>
+                        		<field name="reconcile_amount" attrs="{'readonly': [('payment_state', '!=', 'draft')]}"/>
+                        		<field name="currency_id" invisible="1"/>
+                        		<field name="payment_state" invisible="1"/>
+                        	</tree>
+                        </field> -->
+                        <field name="payment_invoice_ids" attrs="{'invisible': ['|', ('payment_type', 'not in', ['inbound', 'outbound']), ('partner_type', 'not in', ['customer', 'supplier'])]}">
+                        	<tree editable="bottom" create="false">
+                        		<field name="invoice_id" readonly="1" force_save="1"/>
+                                <field name="origin" readonly="1"/>
+                                <field name="date_invoice" readonly="1"/>
+                                <field name="date_due" readonly="1"/>
+                                <field name="amount_total" readonly="1"/>
+                                <field name="residual" readonly="1"/>
+                        		<field name="reconcile_amount" readonly="1" force_save="1"/>
+                        		<field name="currency_id" invisible="1"/>
+                        		<field name="payment_state" invisible="1"/>
+                        	</tree>
+                        </field>
+                    </xpath>
+                </field>
+        </record>
+    </data>
+</odoo>

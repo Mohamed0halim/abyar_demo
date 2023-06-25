@@ -1,0 +1,18 @@
+<odoo>
+    <record id="iq_anfassres_users_view_form_inherit_sections" model="ir.ui.view">
+        <field name="name">res.anfassusers.view.form.inherit.user.restrict</field>
+        <field name="model">res.users</field>
+        <field name="inherit_id" ref="base.view_users_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//sheet//notebook//page[@name='preferences']" position="after">
+				<page name='journal_section_user_asccess'
+					string='Journals Access'>
+					<group>
+                        <field name="iq_defaultpjournal" />
+						<field name="iq_journals" widget="many2many_tags"/>
+					</group>
+				</page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

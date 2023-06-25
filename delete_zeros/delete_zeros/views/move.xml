@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="account_view_move_form_id_inherit_id" model="ir.ui.view">
+            <field name="name">account.move.line</field>
+            <field name="model">account.move</field>
+            <field name="inherit_id" ref="account.view_move_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='invoice_line_ids']//field[@name='quantity']" position="attributes">
+                    <attribute name="widget">integer</attribute>
+                </xpath>
+                <xpath expr="//field[@name='invoice_line_ids']//field[@name='price_unit']" position="attributes">
+                    <attribute name="widget">integer</attribute>
+                </xpath>
+                <xpath expr="//field[@name='invoice_line_ids']//field[@name='price_subtotal']" position="attributes">
+                    <attribute name="widget">integer</attribute>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>
+

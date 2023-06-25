@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+
+    <record model="report.paperformat" id="general_weekly_paperformat_report">
+      <field name="name">European A4</field>
+      <field name="default" eval="True"/>
+      <field name="format">custom</field>
+      <field name="page_height">290</field>
+      <field name="page_width">230</field>
+      <field name="orientation">Portrait</field>
+      <field name="margin_top">0</field>
+      <field name="margin_bottom">25</field>
+      <field name="margin_left">3</field>
+      <field name="margin_right">3</field>
+      <field name="header_line" eval="False"/>
+      <field name="header_spacing">20</field>
+      <field name="dpi">90</field>
+
+    </record>
+
+    <record id="general_weekly_account_statement_report_action" model="ir.actions.report">
+      <field name="name">Weekly Account Statement Report general</field>
+      <field name="model">weekly.general</field>
+      <field name="report_type">qweb-pdf</field>
+      <field name="report_name">general_weekly_account_statement_for_c.general_weekly_account_statement</field>
+      <field name="report_file">general_weekly_account_statement_for_c.general_weekly_account_statement</field>
+      <field name="binding_model_id" ref="model_weekly_general"/>
+      <field name="binding_type">report</field>
+      <field name="paperformat_id" ref="general_weekly_paperformat_report"/>
+    </record>
+
+    <template id="general_weekly_account_statement">
+      <t t-call="web.html_container">
+        <t t-call="web.external_layout">
+          <!--        <t t-call="web.basic_layout">-->
+          <!--          <t t-foreach="move_lines" t-as="line">-->
+          <div class="page" style="direction: ltr;">
+            <div style="border-top:0px;margin:0px 0px 0px 0px;">
+              <div class="row">
+                <!--header-->
+                <div class="col-md-10">
+                  <img src="general_weekly_account_statement_for_c/static/description/img/header.png"
+                       style="top:0px;width:103%;height:150px;" alt="Logo"/>
+                </div>
+                <!--                  <div class="col-9 text-right" style="margin-top:22px;" t-field="company.report_header" name="moto"/>-->
+              </div>
+            </div>
+            <div class="list-inline-item"
+                 style="border-collapse: collapse;border: 0px solid #ddd;padding-top:0;margin-top:0;direction: ltr;">
+              <!--                 style="direction: ltr;">-->
+              التاريــخ:
+              <!--              <br/>-->
+              <!--              <span t-field="doc.current_log_user"/>-->
+              <!--                    <strong>تاريخ الطباعه:-</strong>-->
+              <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%Y-%m-%d %H:%M')"/>
+              <!--              Print with no time only date-->
+              <!--              <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%Y-%m-%d')"/>-->
+              <br/>
+              <div class="list-inline-item"
+                   style="border-collapse: collapse;border: 0px solid #ddd;padding-top:0;margin-top:0;direction: ltr;">
+              </div>
+            </div>
+            <div class="list-inline-item"
+                 style="border-collapse: collapse;border: 0px solid #ddd;padding-top:0;
+                 margin-top:0;direction: rtl;margin:0px 0px 0px 740px;text-align: right">
+              <!--                 style="direction: ltr;">-->
+              فــاتورة رقــم(
+              <span t-esc="name_of_invoice"/>
+              )
+              <br/>
+              إلـي السيد(
+              <span t-esc="partner"/>
+              )
+              المحترم...
+            </div>
+
+            <style>
+              @font-face {
+              font-family: 'Tajawal-Regular';
+              src: local('Tajawal-Regular'), local('Tajawal-Regular'),
+              url(/general_weekly_account_statement_for_c/static/src/fonts/cairo/Cairo-SemiBold.ttf)
+              format('opentype');
+              }
+              .font_tajawal{
+              font-family: Tajawal-Regular;
+              }
+              tr:nth-child(even) {
+              background-color: #eee;
+              }
+              tr:nth-child(odd) {
+              background-color: #fff;
+              }
+            </style>
+            <!--            <style>-->
+            <!--              @font-face {-->
+            <!--              font-family: 'Cairo-SemiBold';-->
+            <!--              src: local('Cairo-SemiBold'), local('Cairo-SemiBold'),-->
+            <!--              url(/weekly_account_statement/static/src/fonts/cairo/Cairo-SemiBold.ttf)-->
+            <!--              format('opentype');-->
+            <!--              }-->
+            <!--              .font_tajawal{-->
+            <!--              font-family: Tajawal-Regular;-->
+            <!--              }-->
+            <!--              tr:nth-child(even) {-->
+            <!--              background-color: #eee;-->
+            <!--              }-->
+            <!--              tr:nth-child(odd) {-->
+            <!--              background-color: #fff;-->
+            <!--              }-->
+            <!--            </style>-->
+
+            <head>
+              <style>
+                table, th, td {
+                border: 1px solid black;
+                }
+              </style>
+            </head>
+
+            <br/>
+            <div class="list-inline-item"
+                 style="border-collapse: collapse;border: 0px solid #ddd;padding-top:0;
+                 margin-top:0;direction: rtl;margin:0px 0px 0px 600px;text-align: right">
+              مــن تاريــخ (
+              <span t-esc="from"/>
+              )
+              إلــي تاريــخ (
+              <span t-esc="to"/>
+              )
+            </div>
+            <br/>
+            <t t-set="seq" t-value="1"/>
+            <br/>
+            <table class='styled-table mt-2 font_tajawal' width="40%"
+                   style="vertical-align:middle;font-weight: bold;border-collapse: collapse;border: 1px solid #ddd;font-size:20px;
+                   width:40%;padding-top:0;text-align:center;margin:0px 0px 0px 330px;direction: ltr;">
+              <tr style="vertical-align:middle;font-weight: bold;">
+                <th>م/كشــف حســـاب أسبوعـــي عــام</th>
+              </tr>
+            </table>
+            <!--            <br/>-->
+            <br/>
+            <table class='styled-table mt-2 font_tajawal' width="100%"
+                   style="border-collapse: collapse;border: 2px solid #ddd;font-size:20px; width:100%;padding-top:0;margin-top:0;direction: ltr;">
+              <thead>
+                <tr class="thead-light"
+                    style="vertical-align:middle;padding:0px; margin:0px;border-top: 2px solid #ddd;height: 40px">
+                  <th class="text-center"
+                      style="background-color:#d5712c; color:#ffffff;width: 20%; font-weight: bold;">
+                    المبــلغ
+                  </th>
+                  <th class="text-center"
+                      style="background-color:#d5712c; color:#ffffff;width: 40%; font-weight: bold;">
+                    <!--                    <br/>-->
+                    التاريـخ
+                  </th>
+                  <th class="text-center"
+                      style="background-color:#d5712c; color:#ffffff;width: 40%; font-weight: bold;">
+                    <!--                    <br/>-->
+                    التفاصيـل
+                  </th>
+                </tr>
+              </thead>
+              <tbody class="sale_tbody">
+                <t t-set="subtotal_total_fees" t-value="0"/>
+                <t t-set="subtotal_total_receipts" t-value="0"/>
+                <t t-set="total_total" t-value="0"/>
+                <t t-set="i" t-value="1"/>
+                <!--                <t t-foreach="invoice_lines" t-as="doc3" style="height: 40px">-->
+                <!--                  <t t-set="subtotal_total_fees" t-value="subtotal_total_fees + doc3['total_fees']"/>-->
+                <!--                  <t t-set="subtotal_total_receipts" t-value="subtotal_total_receipts + doc3['total_receipts']"/>-->
+                <t t-set="total_total"
+                   t-value="current_amount + last_balance"/>
+                <!--                  <t t-set="i" t-value="i + 1"/>-->
+                <tr>
+                  <!--                    <td style="background-color:#FFFFFF;text-align:center;border: 2px solid #ddd;">-->
+                  <!--                      &lt;!&ndash;                      <span t-esc="doc3['price_subtotal']"/>&ndash;&gt;-->
+                  <!--                      <span t-esc="'{:,}'.format(doc3['price_subtotal'])"/>-->
+                  <!--                    </td>-->
+                  <td style="background-color:#FFFFFF;text-align:center;border: 2px solid #ddd;">
+                    <!--                    <span t-esc="last_balance"/>-->
+                    <span t-esc="'{:,}'.format(last_balance)"/>
+                  </td>
+                  <td style="background-color:#FFFFFF;text-align:center;border: 2px solid #ddd;">
+                    <!--                    <span t-esc="doc3['last_balance']"/>-->
+                    <span t-esc="last_balance_date"/>
+                  </td>
+                  <td style="background-color:#FFFFFF;text-align:center;border: 2px solid #ddd;">
+                    المتبقى من الفاتورة السابقة
+                  </td>
+                </tr>
+                <tr>
+                  <td style="background-color:#FFFFFF;text-align:center;border: 2px solid #ddd;">
+                    <span t-esc="'{:,}'.format(current_amount)"/>
+                    <!--                    <span t-esc="current_amount"/>-->
+                  </td>
+                  <td style="background-color:#FFFFFF;text-align:center;border: 2px solid #ddd;">
+                    <span t-esc="current_date"/>
+                  </td>
+                  <td style="background-color:#FFFFFF;text-align:center;border: 2px solid #ddd;">
+                    اجمالى مجمـوع الرسوم والاتعـاب
+                  </td>
+                </tr>
+                <tr>
+                  <td style="height: 30px;text-align:center;border: 2px solid #ddd;font-weight: bold;">
+                  </td>
+                  <td style="height: 30px;color:#000000;text-align:center;border: 2px solid #ddd;font-weight: bold;">
+                  </td>
+                  <td style="height: 30px;color:#000000;text-align:center;border: 2px solid #ddd;font-weight: bold;">
+                  </td>
+                </tr>
+                <tr>
+                  <td style="height: 30px;text-align:center;border: 2px solid #ddd;font-weight: bold;">
+                  </td>
+                  <td style="height: 30px;color:#000000;text-align:center;border: 2px solid #ddd;font-weight: bold;">
+                  </td>
+                  <td style="height: 30px;color:#000000;text-align:center;border: 2px solid #ddd;font-weight: bold;">
+                  </td>
+                </tr>
+                <tr>
+                  <td style="height: 30px;text-align:center;border: 2px solid #ddd;font-weight: bold;">
+                  </td>
+                  <td style="height: 30px;color:#000000;text-align:center;border: 2px solid #ddd;font-weight: bold;">
+                  </td>
+                  <td style="height: 30px;color:#000000;text-align:center;border: 2px solid #ddd;font-weight: bold;">
+                  </td>
+                </tr>
+                <tr>
+                  <td style="height: 30px;text-align:center;border: 2px solid #ddd;font-weight: bold;">
+                    <span t-esc="'{:,}'.format(total_total)"/>
+                  </td>
+                  <td colspan="2" style="color:#000000;text-align:center;border: 2px solid #ddd;font-weight: bold;">
+                    المجمـوع
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="3"
+                      style="background-color:#d5712c; color:#000000;text-align:center;border: 2px solid #ddd;font-weight: bold;">
+                    المبالـغ التي تم تسديدها
+                  </td>
+                </tr>
+                <t t-set="e" t-value="1"/>
+                <t t-foreach="move_lines" t-as="doc3" style="height: 40px">
+                  <tr>
+                    <td style="background-color:#FFFFFF;text-align:center;border: 2px solid #ddd;">
+                      <span t-esc="'{:,}'.format(doc3['pay_amount'])"/>
+                      <!--                      <span t-esc="doc3['pay_amount']"/>-->
+                    </td>
+                    <td style="background-color:#FFFFFF;text-align:center;border: 2px solid #ddd;">
+                      <span t-esc="doc3['pay_date']"/>
+                    </td>
+                    <td style="background-color:#FFFFFF;text-align:center;border: 2px solid #ddd;">
+                      <!--                      <span t-esc="doc3['pay_date']"/>-->
+                    </td>
+                  </tr>
+                </t>
+                <tr>
+                  <td style="text-align:center;border: 2px solid #ddd;font-weight: bold;">
+                    <!--                    <span t-esc="doc3['total_for_amount']"/>-->
+                    <!--                    <span t-esc="total_for_amount"/>-->
+                    <span t-esc="'{:,}'.format(total_for_amount)"/>
+
+                  </td>
+                  <td colspan="2"
+                      style="color:#000000;text-align:center;border: 2px solid #ddd;font-weight: bold;">
+                    مجمـوع المبالغ المسددة
+                  </td>
+                  <!--                  <td style="background-color:#FFFFFF; color:#ffffff;text-align:center;border: 2px solid #ddd;font-weight: bold;">-->
+                  <!--                  </td>-->
+                </tr>
+
+                <tr style="height: 40px">
+                  <td rowspan="2"
+                      style="text-align:center;border: 2px solid #ddd;font-weight: bold;">
+                    <t t-set="total_all_for_customer" t-value="0"/>
+                    <t t-set="total_all_for_customer"
+                       t-value="total_total - total_for_amount"/>
+                    <span t-esc="total_all_for_customer" t-options='{"widget": "float", "precision": 2}'/>
+                  </td>
+                  <td colspan="2"
+                      style="vertical-align:middle;text-align: center;color:#000000;text-align:center;border: 2px solid #ddd;font-weight: bold;">
+                    <!--                    <br/>-->
+                    المبلغ النهائى بعد خصم المبالغ
+                    المسدده                    <!--                    المبلغ المتبقي بذمة السيد(<span t-esc="partner"/>) والواجب تسديده الي شركة ابيار الرميلة-->
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <div style="direction: rtl;">
+              <div class="col-12">
+                <!--                <div class="text-left">-->
+                <div>
+                  <strong>المدير المفــوض</strong>
+                </div>
+              </div>
+            </div>
+            <!--            <br/>-->
+            <br/>
+            <div style="direction: rtl;">
+              <img src="general_weekly_account_statement_for_c/static/description/img/done.png"
+                   style="top:0px;width:40%;height:100px;"/>
+            </div>
+          </div>
+          <!--          </t>-->
+          <div class="footer" style="margin-left: 10px;">
+            <img src="general_weekly_account_statement_for_c/static/description/img/footer.png"
+                 style="top:0px;width:100%;height:100px;"/>
+          </div>
+        </t>
+      </t>
+    </template>
+  </data>
+</odoo>

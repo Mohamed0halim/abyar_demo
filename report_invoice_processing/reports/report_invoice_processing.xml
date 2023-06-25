@@ -1,0 +1,491 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+
+    <record model="report.paperformat" id="paper_format_report_invoice_processing_id">
+      <field name="name">European A4 low margin</field>
+      <field name="default" eval="True"/>
+      <field name="format">custom</field>
+      <field name="page_height">360</field>
+      <field name="page_width">250</field>
+      <field name="orientation">Portrait</field>
+      <field name="margin_top">0</field>
+      <field name="margin_bottom">25</field>
+      <field name="margin_left">3</field>
+      <field name="margin_right">3</field>
+      <field name="header_line" eval="False"/>
+      <field name="header_spacing">20</field>
+      <field name="dpi">90</field>
+    </record>
+
+    <report
+            string=" طباعـة فـاتـورة التجهيـز "
+            id="report_invoice_processing_report_id"
+            model="account.move"
+            report_type="qweb-pdf"
+            name="report_invoice_processing.template_report_invoice_processing"
+            file="report_invoice_processing.template_report_invoice_processing"
+            paperformat="report_invoice_processing.paper_format_report_invoice_processing_id"
+
+    />
+
+    <template id="template_report_invoice_processing">
+      <!--        <t t-call="web.internal_layout">-->
+      <t t-call="web.html_container">
+        <t t-call="web.external_layout">
+          <!--        <t t-call="web.basic_layout">-->
+          <t t-foreach="docs" t-as="o">
+            <!--            <div class="page" dir="rtl">-->
+            <div class="page" style="direction: ltr;">
+
+              <div style="border-top:0px;margin:0px 0px 0px 0px;">
+                <div class="row">
+                  <!--header-->
+                  <div class="col-md-10">
+                    <img src="report_invoice_processing/static/description/img/ir_logo.png"
+                         style="top:0px;width:100%;height:150px;" alt="Logo"/>
+                  </div>
+                  <!--                  <div class="col-9 text-right" style="margin-top:22px;" t-field="company.report_header" name="moto"/>-->
+                </div>
+              </div>
+
+              <style>
+                @font-face {
+                font-family: 'Tajawal-Regular';
+                src: local('Tajawal-Regular'), local('Tajawal-Regular'),
+                url(/report_invoice_processing/static/src/fonts/cairo/Cairo-SemiBold.ttf)
+                format('opentype');
+                }
+                .font_tajawal{
+                font-family: Tajawal-Regular;
+                }
+                tr:nth-child(even) {
+                <!--                background-color: #eee;-->
+                }
+                tr:nth-child(odd) {
+                background-color: #fff;
+                }
+              </style>
+              <head>
+                <style>
+                  <!--                  , th, td -->
+                  table, th, td{
+                  border: 1px solid black;
+                  font-size:21px;
+                  border-collapse: separate;
+                  border-radius: 0px;
+                  border-spacing: 0px;
+                  }
+                </style>
+              </head>
+              <!--              font-weight: bold;-->
+              <div class="oe_structure" style="font-size: 11px;">
+                <table class='styled-table mt-2 font_tajawal'
+                       style="color:black;border-collapse: collapse;border: 1px solid black;font-size:11px;
+                           width:100%;padding-top:0;margin-top:0;margin:0px 0px 0px 0px;stext-align:left">
+                  <!--                  <tr style="text-align:center">-->
+                  <!--                    <th class="text-center" colspan="6"-->
+                  <!--                        style="background-color:#1874a5;padding: 8px;border: 2px solid #ddd;text-align: center;width: 50%">-->
+                  <!--                      Contract Information-->
+                  <!--                    </th>-->
+                  <!--                  </tr>-->
+                  <!--                  background-color:#4472c4;-->
+                  <tr style="text-align:center">
+                    <th colspan="2"
+                        style="padding: 4px;border: 1px solid black;text-align: center;width: 30%">
+                      Contract Number:
+                    </th>
+                    <th colspan="4"
+                        style="color:black;padding: 4px;border: 1px solid black;text-align:left ;width: 70%">
+                      <span t-field="o.contract_num"/>
+                    </th>
+                  </tr>
+                  <tr style="text-align:center">
+                    <th colspan="2"
+                        style="padding: 4px;border: 1px solid black;text-align: center;width: 30%">
+                      GR No:
+                    </th>
+                    <th colspan="4"
+                        style="color:black;padding: 4px;border: 1px solid black;text-align:left;width: 70%">
+                      <span t-field="o.gr_number"/>
+
+                    </th>
+                  </tr>
+                  <tr style="text-align:center">
+                    <th colspan="2"
+                        style="padding: 4px;border: 1px solid black;text-align: center;width: 30%">
+                      Contract Title:
+                    </th>
+                    <th colspan="4"
+                        style="color:black;padding: 4px;border: 1px solid black;text-align: left;width: 70%">
+                      <span t-field="o.contract_titel"/>
+                    </th>
+                  </tr>
+                  <tr style="text-align:center">
+                    <th colspan="2"
+                        style="padding: 4px;border: 1px solid black;text-align: center;width: 30%">
+                      Date:
+                    </th>
+                    <th colspan="4"
+                        style="color:black;padding: 4px;border: 1px solid black;text-align: left;width: 70%">
+                      <span t-field="o.invoice_date"/>
+
+                    </th>
+                  </tr>
+                  <tr style="text-align:center">
+                    <th colspan="2"
+                        style="padding: 4px;border: 1px solid black;text-align: center;width: 30%">
+                      Invoice Number:
+                    </th>
+                    <th colspan="4"
+                        style="color:black;padding: 4px;border: 1px solid black;text-align: left;width: 70%">
+                      <span t-field="o.name"/>
+
+                    </th>
+                  </tr>
+                  <tr style="text-align:center">
+                    <th colspan="2"
+                        style="padding: 4px;border: 1px solid black;text-align: center;width: 30%">
+                      Department:
+                    </th>
+                    <th colspan="4"
+                        style="color:black;padding: 4px;border: 1px solid black;text-align: left;width: 70%">
+                      <span t-field="o.inv_department"/>
+
+                    </th>
+                  </tr>
+                  <tr style="text-align:center">
+                    <th colspan="2"
+                        style="padding: 4px;border: 1px solid black;text-align: center;width: 30%">
+                      Client Name:
+                    </th>
+                    <th colspan="4"
+                        style="color:black;padding: 4px;border: 1px solid black;text-align: left;width: 70%">
+                      <span t-field="o.partner_id.name"/>
+                    </th>
+                  </tr>
+                  <tr style="text-align:center">
+                    <th colspan="2"
+                        style="padding: 4px;border: 1px solid black;text-align: center;width: 30%">
+                      Contact person:
+                    </th>
+                    <th colspan="4"
+                        style="color:black;padding: 4px;border: 1px solid black;text-align: left;width: 70%">
+                      <span t-field="o.contact_person"/>
+                    </th>
+                  </tr>
+                  <tr style="text-align:center">
+                    <th colspan="2"
+                        style="padding: 4px;border: 1px solid black;text-align: center;width: 30%">
+                      Currency:
+                    </th>
+                    <th colspan="4"
+                        style="color:black;padding: 4px;border: 1px solid black;text-align: left;width: 70%">
+                      <span t-field="o.inv_currency"/>
+                    </th>
+                  </tr>
+                  <tr style="text-align:center">
+                    <th colspan="2"
+                        style="padding: 4px;border: 1px solid black;text-align: center;width: 30%">
+                      Service Order No:
+                    </th>
+                    <th colspan="4"
+                        style="color:black;padding: 4px;border: 1px solid black;text-align: left;width: 70%">
+                      <span t-field="o.service_order_no"/>
+                    </th>
+                  </tr>
+                  <tr style="text-align:center">
+                    <th colspan="2"
+                        style="padding: 4px;border: 1px solid black;text-align: center;width: 30%">
+                      Description of Services:
+                    </th>
+                    <th colspan="4"
+                        style="color:black;padding: 4px;border: 1px solid black;text-align: left;width: 70%">
+                      <span t-field="o.description_of_services"/>
+                    </th>
+                  </tr>
+                  <tr style="text-align:center">
+                    <th colspan="2"
+                        style="padding: 4px;border: 1px solid black;text-align: center;width: 30%">
+                      Period of Performance:
+                    </th>
+                    <th colspan="4"
+                        style="color:black;padding: 4px;border: 1px solid black;text-align: left;width: 70%">
+                      <span t-field="o.Period_of_performance"/>
+                    </th>
+                  </tr>
+                  <tr style="text-align:center">
+                    <th rowspan="6"
+                        style="padding: 4px;border: 1px solid black;text-align: center;width: 10%">
+                      <br/>
+                      <br/>
+                      <br/>
+                      Bank Details :
+                    </th>
+
+                    <th
+                            style="padding: 4px;border: 1px solid black;text-align: left;width: 20%">
+                      Beneficiary Name:
+                    </th>
+                    <th colspan="4"
+                        style="color:black;padding: 4px;border: 1px solid black;text-align: left;width: 70%">
+                      ABYAR ALRUMAILA COMPANY
+                    </th>
+                  </tr>
+                  <tr style="text-align:left">
+                    <th
+                            style="padding: 4px;border: 1px solid black;text-align: left;width: 20%">
+                      Bank Name:
+                    </th>
+                    <th colspan="4"
+                        style="color:black;padding: 4px;border: 1px solid black;text-align: left;width: 70%">
+                      TRADE BANK OF IRAQ
+                    </th>
+                  </tr>
+                  <tr style="text-align:left">
+                    <th
+                            style="padding: 4px;border: 1px solid black;text-align: left;width: 20%">
+                      Bank Address :
+                    </th>
+                    <th colspan="4"
+                        style="color:black;padding: 4px;border: 1px solid black;text-align: left;width: 70%">
+                      IRAQ / BAGHDAD / BABYLON MALL
+                    </th>
+                  </tr>
+                  <tr style="text-align:left">
+                    <th
+                            style="padding: 4px;border: 1px solid black;text-align: left;width: 20%">
+                      Bank Account :
+                    </th>
+                    <th colspan="4"
+                        style="color:black;padding: 4px;border: 1px solid black;text-align: left;width: 70%">
+                      0025-009808-001
+                    </th>
+                  </tr>
+                  <tr style="text-align:left">
+                    <th style="padding: 4px;border: 1px solid black;text-align: left;width: 20%">
+                      IBAN:
+                    </th>
+                    <th colspan="4"
+                        style="color:black;padding: 4px;border: 1px solid black;text-align: left;width: 70%">
+                      IQ77 TRIQ 9760 2500 9808 001
+                    </th>
+                  </tr>
+                  <tr style="text-align:left">
+                    <th
+                            style="padding: 4px;border: 1px solid black;text-align: left;width: 20%">
+                      SWIFT Code:
+                    </th>
+                    <th class="text-align:left" colspan="4"
+                        style="color:black;padding: 4px;border: 1px solid black;width: 70%;text-align:left">
+                      TRIQIQBA
+                    </th>
+                  </tr>
+                  <tr style="text-align:left">
+                    <th class="text-lef" colspan="6"
+                        style="padding: 4px;border: 1px solid black;width: 50%">
+                      A. DESCRIPTION OF SUPPLY
+                    </th>
+                  </tr>
+                </table>
+                <table class='styled-table mt-2 font_tajawal'
+                       style="color:black;border-collapse: collapse;border: 1px solid black;font-size:11px;
+                             width:100%;padding-top:0;margin-top:0;margin:0px 0px 0px 0;">
+                  <!--                        class="table table-bordered table-sm o_main_table" style="height:250px;">-->
+                  <thead>
+                    <tr class="thead-light" style="background-color:#f09252; color: #ffffff">
+                      <!-- TODO: remove in master -->
+                      <t t-set="colspan" t-value="8"/>
+
+                      <th class="text-center" colspan="1" width="3%"
+                          style="padding: 4px;border: 1px solid blackcolor: #ffffff">
+                        Item
+                      </th>
+                      <th class="text-center" colspan="1" width="10%"
+                          style="padding: 4px;border: 1px solid black;">
+                        Name
+                      </th>
+                      <th class="text-center" colspan="1" width="20%"
+                          style="padding: 4px;border: 1px solid black;">
+                        Description
+                      </th>
+                      <th class="text-center" colspan="1" width="5%"
+                          style="padding: 4px;border: 1px solid black;">
+                        Qty
+                      </th>
+                      <th class="text-center" colspan="1" width="10%"
+                          style="padding: 4px;border: 1px solid black;">
+                        Unit
+                      </th>
+                      <th class="text-center" colspan="1" width="5%"
+                          style="padding: 4px;border: 1px solid black;">
+                        <!--                        <t>Unit</t>-->
+                        <t>Price</t>
+                        <!--                        Price-->
+                      </th>
+                      <th class="text-center" colspan="1" width="5%"
+                          style="padding: 4px;border: 1px solid black;">
+                        subtotal
+                      </th>
+                      <th class="text-center" colspan="1" width="10%"
+                          style="padding: 4px;border: 1px solid black;">
+                        Remark
+                      </th>
+                    </tr>
+                  </thead>
+                  <!--content-->
+                  <tbody class="sale_tbody">
+                    <t t-set="current_subtotal" t-value="0"/>
+                    <t t-set="i" t-value="1"/>
+                    <!--                    <t t-set="current_subtotal" t-value="1"/>-->
+                    <!--sequence-->
+                    <t t-foreach="o.invoice_line_ids" t-as="line">
+                      <t t-set="current_subtotal" t-value="current_subtotal + line.price_subtotal"
+                      />
+                      <t t-set="current_subtotal" t-value="current_subtotal + line.price_total"
+                      />
+                      <tr>
+                        <t>
+                          <td class="text-center">
+                            <span t-esc="i"/>
+                            <t t-set="i" t-value="i+1"/>
+                          </td>
+                          <td class="text-center">
+                            <span t-field="line.product_id.name"/>
+                          </td>
+                          <td class="text-center">
+                            <span t-field="line.name"/>
+                            <!--                            <span t-field="line.product_id"/>-->
+                          </td>
+                          <!--  and this print full description-->
+                          <!--                              <td><span t-field="line.name"/></td>-->
+                          <td class="text-center">
+                            <span t-field="line.quantity"/>
+                          </td>
+                          <td class="text-center">
+                            <span t-field="line.product_uom_id"/>
+                          </td>
+                          <td class="text-center">
+                            <span t-field="line.price_unit"/>
+                          </td>
+                          <td class="text-center">
+                            <span t-field="line.price_subtotal"/>
+                          </td>
+                          <td class="text-center">
+                            <span t-field="line.note"/>
+                          </td>
+                        </t>
+                      </tr>
+                    </t>
+                    <tr style="text-align:right">
+                      <th colspan="6"
+                          style="padding: 4px;border: 1px solid black;text-align:right">
+                        Total Value in USD
+                      </th>
+                      <td class="text-center">
+                        <span t-field="o.amount_total"/>
+                      </td>
+                      <td class="text-center">
+                      </td>
+                    </tr>
+
+                  </tbody>
+                  <!--004 last content-->
+                </table>
+                <!--                <div style="position: absolute; top:1250px; right:5%">-->
+                <!--                  <img src="report_invoice_processing/static/description/img/done.png"-->
+                <!--                       style="top:0px;width:40%;height:100px;"/>-->
+                <!--                </div>-->
+
+                <table class='styled-table mt-2 font_tajawal'
+                       style="color:black;border-collapse: collapse;border: 0px solid white;font-size:11px;
+                           width:100%;padding-top:0;margin-top:0;margin:0px 0px 0px 0px;">
+                  <tr style="text-align:center; border: 0px solid white; background-color:#ffffff;">
+                    <th style="padding: 4px;border: 0px solid white;text-align: left;width: 25%"></th>
+                    <!--                    <th colspan="2"-->
+                    <!--                        style="padding: 8px;border: 0px solid black;text-align: left;width: 30%">-->
+                    <th colspan="2"
+                        style="padding: 4px;border: 0px solid white;text-align: left;width: 30%">
+                      On behalf of Contractor
+                    </th>
+                  </tr>
+                  <tr style="text-align:center; border: 0px solid white; background-color:#ffffff;">
+                    <th style="padding: 4px;border: 0px solid white;text-align: left;width: 25%"></th>
+                    <!--                    <th colspan="2"-->
+                    <!--                        style="padding: 8px;border: 0px solid black;text-align: left;width: 30%">-->
+                    <th colspan="2"
+                        style="padding: 4px;border: 0px solid white;text-align: left;width: 30%">
+                      Name:
+                    </th>
+                  </tr>
+                  <tr style="text-align:center; border: 0px solid white; background-color:#ffffff;">
+                    <th style="padding: 4px;border: 0px solid white;text-align: left;width: 25%"></th>
+                    <!--                    <th colspan="2"-->
+                    <!--                        style="padding: 8px;border: 0px solid black;text-align: left;width: 30%">-->
+                    <th colspan="2"
+                        style="padding: 4px;border: 0px solid white;text-align: left;width: 30%">
+                      Date:
+                    </th>
+                  </tr>
+                  <tr style="text-align:center; border: 0px solid white; background-color:#ffffff;">
+                    <th style="padding: 4px;border: 0px solid white;text-align: left;width: 25%">
+<!--                      <img src="report_invoice_processing/static/description/img/done.png"-->
+<!--                           style="top:0px;width:100%;height:100px;"/>-->
+                    </th>
+                    <!--                    <th colspan="2"-->
+                    <!--                        style="padding: 8px;border: 0px solid black;text-align: left;width: 30%">-->
+                    <th colspan="2"
+                        style="padding: 4px;border: 0px solid white;text-align: left;width: 30%">
+                      Signature:
+                    </th>
+                  </tr>
+
+                  <!--                  <tr style="text-align:left; border: 0px solid white; background-color:#ffffff;">-->
+                  <!--                    <th style="padding: 8px;border: 0px solid white;text-align: left;width: 6%"></th>-->
+                  <!--                    <th class="text-left" colspan="2"-->
+                  <!--                        style="padding: 8px;border: 0px solid white;text-align: left;width: 30%">-->
+                  <!--                      Signature:-->
+                  <!--                    </th>-->
+                  <!--                  </tr>-->
+                </table>
+                <table class='styled-table mt-2 font_tajawal'
+                       style="color:black;border-collapse: collapse;border: 0px solid white;font-size:11px;
+                           width:100%;padding-top:0;margin-top:0;margin:0px 0px 0px 0px;">
+                  <tr style="text-align:center; border: 0px solid white; background-color:#ffffff;">
+                    <th style="padding: 4px;border: 0px solid white;text-align: left;width: 25%">
+                      <img src="report_invoice_processing/static/description/img/done.png"
+                           style="top:0px;width:100%;height:100px;"/>
+                    </th>
+                    <!--                    <th colspan="2"-->
+                    <!--                        style="padding: 8px;border: 0px solid black;text-align: left;width: 30%">-->
+                    <th colspan="2"
+                        style="padding: 4px;border: 0px solid white;text-align: left;width: 30%">
+                      <!--                      Signature:-->
+                    </th>
+                  </tr>
+
+                  <!--                  <tr style="text-align:left; border: 0px solid white; background-color:#ffffff;">-->
+                  <!--                    <th style="padding: 8px;border: 0px solid white;text-align: left;width: 6%"></th>-->
+                  <!--                    <th class="text-left" colspan="2"-->
+                  <!--                        style="padding: 8px;border: 0px solid white;text-align: left;width: 30%">-->
+                  <!--                      Signature:-->
+                  <!--                    </th>-->
+                  <!--                  </tr>-->
+                </table>
+
+
+              </div>
+            </div>
+
+            <div class="footer" style="margin-left: 10px;">
+              <img src="report_invoice_processing/static/description/img/footer22.png"
+                   style="top:0px;width:103%;height:100px;"/>
+            </div>
+
+          </t>
+        </t>
+      </t>
+    </template>
+
+  </data>
+</odoo>

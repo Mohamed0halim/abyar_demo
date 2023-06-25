@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="ob_sale_tree_view" model="ir.ui.view">
+        <field name="name">sale.view.tree</field>
+        <field name="model">sale.order.line</field>
+        <field name="arch" type="xml">
+            <tree create="0" edit="0" delete="0">
+                <field name="create_date" optional="hide"/>
+                <field name="order_id"/>
+                <field name="order_partner_id"/>
+                <field name="salesman_id" optional="hide"/>
+                <field name="product_id"/>
+                <field name="order_line_image" widget="image" height="30px;" width="30px;"/>
+                <field name="name"/>
+                <field name="product_uom_qty" string="Ordered Qty"/>
+                <field name="price_unit"/>
+                <field name="product_uom" string="UoM"/>
+                <field name="tax_id" widget="many2many_tags"/>
+                <field name="price_subtotal"/>
+                <field name="qty_delivered" optional="hide"/>
+                <field name="qty_invoiced" optional="hide"/>
+                <field name="state" optional="hide"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="ob_sale_view_line_search" model="ir.ui.view">
+        <field name="name">sale.order.line.view.search</field>
+        <field name="model">sale.order.line</field>
+        <field name="arch" type="xml">
+            <search string="Sale Order Lines">
+                <field name="product_id" string="Product"/>
+                <field name="name" string="Order Ref"/>
+                <field name="order_partner_id" string="Customer"/>
+                <separator/>
+                <filter name="draft" string="Draft" domain="[('state', '=', 'draft')]"/>
+                <filter name="sale" string="Sale" domain="[('state', '=', 'sale')]"/>
+                <filter name="cancel" string="Cancelled" domain="[('state', '=', 'cancel')]"/>
+                <separator/>
+                <filter string="Order Date" name="create_date" date="create_date" default_period="this_year"/>
+                <separator/>
+                <group expand="0" string="Group By">
+                    <filter name="customer" string="Customer" domain="[]"
+                            context="{'group_by':'order_partner_id'}"/>
+                    <filter name="salesman_id" string="Salesman" domain="[]"
+                            context="{'group_by':'salesman_id'}"/>
+                    <filter name="product_id" string="Product" domain="[]"
+                            context="{'group_by':'product_id'}"/>
+                    <filter name="status" string="Status"
+                            domain="[]"
+                            context="{'group_by':'state'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_ob_sale_lines" model="ir.actions.act_window">
+        <field name="name">Sale Order Line View</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">sale.order.line</field>
+        <field name="view_mode">tree,kanban,form,pivot,graph</field>
+        <field name="view_id" ref="ob_sale_tree_view"/>
+        <field name="search_view_id" ref="ob_sale_view_line_search"/>
+        <field name="context">{'create': False, 'edit': False}</field>
+    </record>
+
+    <menuitem name="Sale Order Lines"
+              id="menu_sale_order_line"
+              parent="sale.sale_order_menu"
+              action="action_ob_sale_lines"
+              sequence="30"
+    />
+
+    <record model="ir.ui.view" id="view_sale_order_line_pivot">
+        <field name="name">sale.order.line.view.pivot</field>
+        <field name="model">sale.order.line</field>
+        <field name="arch" type="xml">
+            <pivot string="Sales Order Line Analysis" display_quantity="1" sample="1">
+                <field name="create_date" type="row"/>
+                <field name="product_id" type="row"/>
+                <field name="price_unit" type="measure"/>
+                <field name="product_uom_qty" type="measure"/>
+                <field name="price_subtotal" type="measure"/>
+            </pivot>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="sale_order_line_graph">
+        <field name="name">sale.order.line.view.graph</field>
+        <field name="model">sale.order.line</field>
+        <field name="arch" type="xml">
+            <graph string="Sales Order Line Graph" type="line" sample="1">
+                <field name="create_date" interval="day"/>
+                <field name="product_id" type="measure"/>
+                <field name="price_subtotal" type="measure"/>
+            </graph>
+        </field>
+    </record>
+    <record id="sale_order_line_kanban_view" model="ir.ui.view">
+        <field name="name">Sale Order Line Kanban</field>
+        <field name="model">sale.order.line</field>
+        <field name="arch" type="xml">
+            <kanban class="o_kanban_mobile" sample="1">
+                <field name="id"/>
+                <field name="order_id"/>
+                <field name="order_partner_id"/>
+                <field name="price_subtotal"/>
+                <field name="create_date"/>
+                <field name="order_line_image"/>
+                <field name="state"/>
+                <field name="product_id"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_card oe_kanban_global_click">
+                            <div class="o_kanban_image mr-1">
+                                <img t-att-src="kanban_image('sale.order.line', 'order_line_image', record.id.raw_value)"
+                                     alt="Product" class="o_image_64_contain"/>
+                            </div>
+                            <div class="o_kanban_record_top mb16">
+                                <div class="o_kanban_record_headings mt4">
+                                    <strong class="o_kanban_record_title">
+                                        <strong>
+                                            Order:
+                                            <t t-esc="record.order_id.value"/>
+                                        </strong>
+                                    </strong>
+                                </div>
+                                <strong>
+                                    <field name="price_subtotal" widget="monetary"/>
+                                </strong>
+                            </div>
+                            <div class="o_kanban_record_bottom">
+                                <div class="oe_kanban_bottom_left text-muted">
+                                    <span>
+                                        <t t-esc="record.product_id.value"/>
+                                    </span>
+                                </div>
+                                <div class="oe_kanban_bottom_right">
+                                    <field name="state" widget="label_selection"
+                                           options="{'classes': {'draft': 'default', 'cancel': 'default', 'done': 'success'}}"/>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+
+</odoo>

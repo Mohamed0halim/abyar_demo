@@ -1,0 +1,215 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* general_weekly_account_statement_for_c
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-06-22 06:39+0000\n"
+"PO-Revision-Date: 2023-06-22 06:39+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: general_weekly_account_statement_for_c
+#: model_terms:ir.ui.view,arch_db:general_weekly_account_statement_for_c.general_weekly_account_statement
+msgid ""
+")\n"
+"              <br/>\n"
+"              إلـي السيد("
+msgstr ""
+
+#. module: general_weekly_account_statement_for_c
+#: model_terms:ir.ui.view,arch_db:general_weekly_account_statement_for_c.general_weekly_account_statement
+msgid ""
+")\n"
+"              إلــي تاريــخ ("
+msgstr ""
+
+#. module: general_weekly_account_statement_for_c
+#: model_terms:ir.ui.view,arch_db:general_weekly_account_statement_for_c.general_weekly_account_statement
+msgid ""
+")\n"
+"              المحترم..."
+msgstr ""
+
+#. module: general_weekly_account_statement_for_c
+#: model_terms:ir.ui.view,arch_db:general_weekly_account_statement_for_c.general_weekly_account_statement
+msgid "<strong>المدير المفــوض</strong>"
+msgstr ""
+
+#. module: general_weekly_account_statement_for_c
+#: model_terms:ir.ui.view,arch_db:general_weekly_account_statement_for_c.general_view_weekly_account_statement_wizard_form
+msgid "Cancel"
+msgstr ""
+
+#. module: general_weekly_account_statement_for_c
+#: model:ir.model.fields,field_description:general_weekly_account_statement_for_c.field_weekly_general__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: general_weekly_account_statement_for_c
+#: model:ir.model.fields,field_description:general_weekly_account_statement_for_c.field_weekly_general__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: general_weekly_account_statement_for_c
+#: model:ir.model.fields,field_description:general_weekly_account_statement_for_c.field_weekly_general__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: general_weekly_account_statement_for_c
+#: model:ir.model.fields,field_description:general_weekly_account_statement_for_c.field_weekly_general__end_date
+msgid "End Period"
+msgstr "الى"
+
+#. module: general_weekly_account_statement_for_c
+#: model_terms:ir.ui.view,arch_db:general_weekly_account_statement_for_c.general_inherit_view_move_form
+msgid "General Weekly Statement"
+msgstr "كشف حساب اسبوعي عام"
+
+#. module: general_weekly_account_statement_for_c
+#: model_terms:ir.ui.view,arch_db:general_weekly_account_statement_for_c.general_view_weekly_account_statement_wizard_form
+msgid "Get PDF"
+msgstr "طباعة"
+
+#. module: general_weekly_account_statement_for_c
+#: model:ir.model.fields,field_description:general_weekly_account_statement_for_c.field_weekly_general__id
+msgid "ID"
+msgstr ""
+
+#. module: general_weekly_account_statement_for_c
+#: model:ir.model,name:general_weekly_account_statement_for_c.model_account_move
+msgid "Journal Entry"
+msgstr "قيد اليومية"
+
+#. module: general_weekly_account_statement_for_c
+#: model:ir.model,name:general_weekly_account_statement_for_c.model_account_move_line
+msgid "Journal Item"
+msgstr "عنصر اليومية"
+
+#. module: general_weekly_account_statement_for_c
+#: model:ir.model.fields,field_description:general_weekly_account_statement_for_c.field_weekly_general____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: general_weekly_account_statement_for_c
+#: model:ir.model.fields,field_description:general_weekly_account_statement_for_c.field_weekly_general__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: general_weekly_account_statement_for_c
+#: model:ir.model.fields,field_description:general_weekly_account_statement_for_c.field_weekly_general__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: general_weekly_account_statement_for_c
+#: model_terms:ir.ui.view,arch_db:general_weekly_account_statement_for_c.general_weekly_account_statement
+msgid "Logo"
+msgstr ""
+
+#. module: general_weekly_account_statement_for_c
+#: model:ir.model.fields,field_description:general_weekly_account_statement_for_c.field_weekly_general__name_of_invoice
+msgid "Name Of Invoice"
+msgstr ""
+
+#. module: general_weekly_account_statement_for_c
+#: model_terms:ir.ui.view,arch_db:general_weekly_account_statement_for_c.general_view_weekly_account_statement_wizard_form
+msgid "Partner"
+msgstr ""
+
+#. module: general_weekly_account_statement_for_c
+#: model:ir.model.fields,field_description:general_weekly_account_statement_for_c.field_weekly_general__start_date
+msgid "Start Period"
+msgstr "من"
+
+#. module: general_weekly_account_statement_for_c
+#: model:ir.model.fields,field_description:general_weekly_account_statement_for_c.field_weekly_general__the_partner_id
+msgid "The partner"
+msgstr ""
+
+#. module: general_weekly_account_statement_for_c
+#: model:ir.actions.report,name:general_weekly_account_statement_for_c.general_weekly_account_statement_report_action
+msgid "Weekly Account Statement Report general"
+msgstr ""
+
+#. module: general_weekly_account_statement_for_c
+#: model:ir.actions.act_window,name:general_weekly_account_statement_for_c.general_action_weekly_account_statement
+msgid "general weekly Account Statement Invoice"
+msgstr ""
+
+#. module: general_weekly_account_statement_for_c
+#: model:ir.model,name:general_weekly_account_statement_for_c.model_weekly_general
+msgid "weekly.general"
+msgstr ""
+
+#. module: general_weekly_account_statement_for_c
+#: model_terms:ir.ui.view,arch_db:general_weekly_account_statement_for_c.general_weekly_account_statement
+msgid "اجمالى مجمـوع الرسوم والاتعـاب"
+msgstr ""
+
+#. module: general_weekly_account_statement_for_c
+#: model_terms:ir.ui.view,arch_db:general_weekly_account_statement_for_c.general_weekly_account_statement
+msgid "التاريـخ"
+msgstr ""
+
+#. module: general_weekly_account_statement_for_c
+#: model_terms:ir.ui.view,arch_db:general_weekly_account_statement_for_c.general_weekly_account_statement
+msgid "التاريــخ:"
+msgstr ""
+
+#. module: general_weekly_account_statement_for_c
+#: model_terms:ir.ui.view,arch_db:general_weekly_account_statement_for_c.general_weekly_account_statement
+msgid "التفاصيـل"
+msgstr ""
+
+#. module: general_weekly_account_statement_for_c
+#: model_terms:ir.ui.view,arch_db:general_weekly_account_statement_for_c.general_weekly_account_statement
+msgid "المبالـغ التي تم تسديدها"
+msgstr ""
+
+#. module: general_weekly_account_statement_for_c
+#: model_terms:ir.ui.view,arch_db:general_weekly_account_statement_for_c.general_weekly_account_statement
+msgid "المبــلغ"
+msgstr ""
+
+#. module: general_weekly_account_statement_for_c
+#: model_terms:ir.ui.view,arch_db:general_weekly_account_statement_for_c.general_weekly_account_statement
+msgid ""
+"المبلغ النهائى بعد خصم المبالغ\n"
+"                    المسدده"
+msgstr ""
+
+#. module: general_weekly_account_statement_for_c
+#: model_terms:ir.ui.view,arch_db:general_weekly_account_statement_for_c.general_weekly_account_statement
+msgid "المتبقى من الفاتورة السابقة"
+msgstr ""
+
+#. module: general_weekly_account_statement_for_c
+#: model_terms:ir.ui.view,arch_db:general_weekly_account_statement_for_c.general_weekly_account_statement
+msgid "المجمـوع"
+msgstr ""
+
+#. module: general_weekly_account_statement_for_c
+#: model_terms:ir.ui.view,arch_db:general_weekly_account_statement_for_c.general_weekly_account_statement
+msgid "فــاتورة رقــم("
+msgstr ""
+
+#. module: general_weekly_account_statement_for_c
+#: model_terms:ir.ui.view,arch_db:general_weekly_account_statement_for_c.general_weekly_account_statement
+msgid "م/كشــف حســـاب أسبوعـــي عــام"
+msgstr ""
+
+#. module: general_weekly_account_statement_for_c
+#: model_terms:ir.ui.view,arch_db:general_weekly_account_statement_for_c.general_weekly_account_statement
+msgid "مجمـوع المبالغ المسددة"
+msgstr ""
+
+#. module: general_weekly_account_statement_for_c
+#: model_terms:ir.ui.view,arch_db:general_weekly_account_statement_for_c.general_weekly_account_statement
+msgid "مــن تاريــخ ("
+msgstr ""

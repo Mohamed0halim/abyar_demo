@@ -1,0 +1,248 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* weekly_account_statement
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-06-19 03:55+0000\n"
+"PO-Revision-Date: 2023-06-19 03:55+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: weekly_account_statement
+#: model_terms:ir.ui.view,arch_db:weekly_account_statement.weekly_account_statement_report_with_details
+msgid "$ المبلــغ"
+msgstr ""
+
+#. module: weekly_account_statement
+#: model_terms:ir.ui.view,arch_db:weekly_account_statement.weekly_account_statement_report_with_details
+msgid ""
+")\n"
+"\n"
+"              إلــي تاريــخ ("
+msgstr ""
+
+#. module: weekly_account_statement
+#: model_terms:ir.ui.view,arch_db:weekly_account_statement.weekly_account_statement_report_with_details
+msgid ""
+")\n"
+"              المحترم..."
+msgstr ""
+
+#. module: weekly_account_statement
+#: model_terms:ir.ui.view,arch_db:weekly_account_statement.weekly_account_statement_report_with_details
+msgid ") والواجب تسديده الي شركة ابيار الرميلة"
+msgstr ""
+
+#. module: weekly_account_statement
+#: model_terms:ir.ui.view,arch_db:weekly_account_statement.weekly_account_statement_report_with_details
+msgid ""
+"<br/>\n"
+"              إلـي السيد("
+msgstr ""
+
+#. module: weekly_account_statement
+#: model_terms:ir.ui.view,arch_db:weekly_account_statement.weekly_account_statement_report_with_details
+msgid "<strong>المدير المفــوض</strong>"
+msgstr ""
+
+#. module: weekly_account_statement
+#: model_terms:ir.ui.view,arch_db:weekly_account_statement.view_weekly_account_statement_wizard_form
+msgid "Cancel"
+msgstr ""
+
+#. module: weekly_account_statement
+#: model:ir.model.fields,field_description:weekly_account_statement.field_weekly_wizard__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: weekly_account_statement
+#: model:ir.model.fields,field_description:weekly_account_statement.field_weekly_wizard__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: weekly_account_statement
+#: model:ir.model.fields,field_description:weekly_account_statement.field_weekly_wizard__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: weekly_account_statement
+#: model:ir.model.fields,field_description:weekly_account_statement.field_weekly_wizard__end_date
+msgid "End Period"
+msgstr ""
+
+#. module: weekly_account_statement
+#: model_terms:ir.ui.view,arch_db:weekly_account_statement.view_weekly_account_statement_wizard_form
+msgid "Get PDF"
+msgstr ""
+
+#. module: weekly_account_statement
+#: model:ir.model.fields,field_description:weekly_account_statement.field_weekly_wizard__id
+msgid "ID"
+msgstr ""
+
+#. module: weekly_account_statement
+#: model:ir.model,name:weekly_account_statement.model_account_move
+msgid "Journal Entry"
+msgstr "قيد اليومية"
+
+#. module: weekly_account_statement
+#: model:ir.model,name:weekly_account_statement.model_account_move_line
+msgid "Journal Item"
+msgstr "عنصر اليومية"
+
+#. module: weekly_account_statement
+#: model:ir.model.fields,field_description:weekly_account_statement.field_weekly_wizard____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: weekly_account_statement
+#: model:ir.model.fields,field_description:weekly_account_statement.field_weekly_wizard__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: weekly_account_statement
+#: model:ir.model.fields,field_description:weekly_account_statement.field_weekly_wizard__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: weekly_account_statement
+#: model_terms:ir.ui.view,arch_db:weekly_account_statement.weekly_account_statement_report_with_details
+msgid "Logo"
+msgstr ""
+
+#. module: weekly_account_statement
+#: model:ir.model.fields,field_description:weekly_account_statement.field_weekly_wizard__name_of_invoice
+msgid "Name Of Invoice"
+msgstr ""
+
+#. module: weekly_account_statement
+#: model:ir.model.fields,field_description:weekly_account_statement.field_account_move_line__how_many_cars
+msgid "Num Of Cars"
+msgstr ""
+
+#. module: weekly_account_statement
+#: model_terms:ir.ui.view,arch_db:weekly_account_statement.view_weekly_account_statement_wizard_form
+msgid "Partner"
+msgstr ""
+
+#. module: weekly_account_statement
+#: model:ir.model.fields,field_description:weekly_account_statement.field_weekly_wizard__start_date
+msgid "Start Period"
+msgstr ""
+
+#. module: weekly_account_statement
+#: model:ir.model.fields,field_description:weekly_account_statement.field_weekly_wizard__the_partner_id
+msgid "The partner"
+msgstr ""
+
+#. module: weekly_account_statement
+#: model:ir.actions.report,name:weekly_account_statement.weekly_account_statement_report_action
+msgid "Weekly Account Statement Report"
+msgstr ""
+
+#. module: weekly_account_statement
+#: model_terms:ir.ui.view,arch_db:weekly_account_statement.custom_inherit_view_move_form
+msgid "Weekly Statement Wizard Report"
+msgstr "التقرير الإسبوعى"
+
+#. module: weekly_account_statement
+#: model:ir.actions.act_window,name:weekly_account_statement.action_weekly_account_statement
+msgid "weekly Account Statement Invoice"
+msgstr ""
+
+#. module: weekly_account_statement
+#: model:ir.model,name:weekly_account_statement.model_weekly_wizard
+msgid "weekly.wizard"
+msgstr ""
+
+#. module: weekly_account_statement
+#: model_terms:ir.ui.view,arch_db:weekly_account_statement.weekly_account_statement_report_with_details
+msgid "الاجمالي /"
+msgstr ""
+
+#. module: weekly_account_statement
+#: model_terms:ir.ui.view,arch_db:weekly_account_statement.weekly_account_statement_report_with_details
+msgid "التاريـخ"
+msgstr ""
+
+#. module: weekly_account_statement
+#: model_terms:ir.ui.view,arch_db:weekly_account_statement.weekly_account_statement_report_with_details
+msgid "التاريــخ:"
+msgstr ""
+
+#. module: weekly_account_statement
+#: model_terms:ir.ui.view,arch_db:weekly_account_statement.weekly_account_statement_report_with_details
+msgid "التفاصــيل"
+msgstr ""
+
+#. module: weekly_account_statement
+#: model_terms:ir.ui.view,arch_db:weekly_account_statement.weekly_account_statement_report_with_details
+msgid "السعــر"
+msgstr ""
+
+#. module: weekly_account_statement
+#: model_terms:ir.ui.view,arch_db:weekly_account_statement.weekly_account_statement_report_with_details
+msgid "الــتسديــدات"
+msgstr ""
+
+#. module: weekly_account_statement
+#: model_terms:ir.ui.view,arch_db:weekly_account_statement.weekly_account_statement_report_with_details
+msgid "الكميـة / الفعليـة"
+msgstr ""
+
+#. module: weekly_account_statement
+#: model_terms:ir.ui.view,arch_db:weekly_account_statement.weekly_account_statement_report_with_details
+msgid "المبلغ المتبقي بذمة السيد("
+msgstr ""
+
+#. module: weekly_account_statement
+#: model_terms:ir.ui.view,arch_db:weekly_account_statement.weekly_account_statement_report_with_details
+msgid "المبلـغ المتبقي من الفاتـورة السابقـة"
+msgstr ""
+
+#. module: weekly_account_statement
+#: model_terms:ir.ui.view,arch_db:weekly_account_statement.weekly_account_statement_report_with_details
+msgid "المجمــوع"
+msgstr ""
+
+#. module: weekly_account_statement
+#: model_terms:ir.ui.view,arch_db:weekly_account_statement.weekly_account_statement_report_with_details
+msgid "المـادة"
+msgstr ""
+
+#. module: weekly_account_statement
+#: model_terms:ir.ui.view,arch_db:weekly_account_statement.weekly_account_statement_report_with_details
+msgid "عدد السيــارات"
+msgstr ""
+
+#. module: weekly_account_statement
+#: model_terms:ir.ui.view,arch_db:weekly_account_statement.weekly_account_statement_report_with_details
+msgid "فــاتورة رقــم("
+msgstr ""
+
+#. module: weekly_account_statement
+#: model_terms:ir.ui.view,arch_db:weekly_account_statement.weekly_account_statement_report_with_details
+msgid "م/ فاتــورة كشــف حســـاب أسبوعـــي"
+msgstr ""
+
+#. module: weekly_account_statement
+#: model_terms:ir.ui.view,arch_db:weekly_account_statement.weekly_account_statement_report_with_details
+msgid "مجمـوع الفاتورة"
+msgstr ""
+
+#. module: weekly_account_statement
+#: model_terms:ir.ui.view,arch_db:weekly_account_statement.weekly_account_statement_report_with_details
+msgid "مجمـوع المبالغ المسددة"
+msgstr ""
+
+#. module: weekly_account_statement
+#: model_terms:ir.ui.view,arch_db:weekly_account_statement.weekly_account_statement_report_with_details
+msgid "مــن تاريــخ ("
+msgstr ""

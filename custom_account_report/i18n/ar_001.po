@@ -1,0 +1,202 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* custom_account_report
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0+e-20221015\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-04-15 00:04+0000\n"
+"PO-Revision-Date: 2023-04-15 00:04+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: custom_account_report
+#: model:ir.model.fields,field_description:custom_account_report.field_res_partner__account_represented_company_ids
+#: model:ir.model.fields,field_description:custom_account_report.field_res_users__account_represented_company_ids
+msgid "Account Represented Company"
+msgstr ""
+
+#. module: custom_account_report
+#: code:addons/custom_account_report/models/account_general_ledger.py:0
+#: code:addons/custom_account_report/models/account_partner_ledger.py:0
+#, python-format
+msgid "Balance"
+msgstr ""
+
+#. module: custom_account_report
+#: code:addons/custom_account_report/models/account_general_ledger.py:0
+#, python-format
+msgid "Base Amount"
+msgstr ""
+
+#. module: custom_account_report
+#: model:ir.model,name:custom_account_report.model_res_partner
+msgid "Contact"
+msgstr "جهة الاتصال"
+
+#. module: custom_account_report
+#: code:addons/custom_account_report/models/account_general_ledger.py:0
+#: code:addons/custom_account_report/models/account_partner_ledger.py:0
+#, python-format
+msgid "Credit"
+msgstr ""
+
+#. module: custom_account_report
+#: code:addons/custom_account_report/models/account_general_ledger.py:0
+#, python-format
+msgid "Currency"
+msgstr ""
+
+#. module: custom_account_report
+#: code:addons/custom_account_report/models/account_general_ledger.py:0
+#, python-format
+msgid "Date"
+msgstr ""
+
+#. module: custom_account_report
+#: code:addons/custom_account_report/models/account_general_ledger.py:0
+#: code:addons/custom_account_report/models/account_partner_ledger.py:0
+#, python-format
+msgid "Debit"
+msgstr ""
+
+#. module: custom_account_report
+#: code:addons/custom_account_report/models/account_partner_ledger.py:0
+#, python-format
+msgid "Due Date"
+msgstr ""
+
+#. module: custom_account_report
+#: code:addons/custom_account_report/models/res_partner.py:0
+#, python-format
+msgid "Expected pay date has been changed from %s to %s"
+msgstr ""
+
+#. module: custom_account_report
+#: code:addons/custom_account_report/models/res_partner.py:0
+#, python-format
+msgid "Expected pay date has been changed from %s to %s for invoice %s"
+msgstr ""
+
+#. module: custom_account_report
+#: code:addons/custom_account_report/models/account_general_ledger.py:0
+#, python-format
+msgid "General Ledger"
+msgstr ""
+
+#. module: custom_account_report
+#: model:ir.actions.client,name:custom_account_report.action_account_report_general_ledger2
+msgid "General Ledger 2"
+msgstr "تقرير الحسابات"
+
+#. module: custom_account_report
+#: model:ir.model,name:custom_account_report.model_account_general_ledger2
+msgid "General Ledger Report"
+msgstr ""
+
+#. module: custom_account_report
+#: model:ir.ui.menu,name:custom_account_report.menu_action_account_report_general_ledger2
+msgid "General Ledger2"
+msgstr "تقرير الحسابات"
+
+#. module: custom_account_report
+#: code:addons/custom_account_report/models/account_general_ledger.py:0
+#, python-format
+msgid "Initial Balance"
+msgstr ""
+
+#. module: custom_account_report
+#: code:addons/custom_account_report/models/account_general_ledger.py:0
+#: code:addons/custom_account_report/models/account_partner_ledger.py:0
+#, python-format
+msgid "Load more... (%s remaining)"
+msgstr ""
+
+#. module: custom_account_report
+#: code:addons/custom_account_report/models/account_general_ledger.py:0
+#, python-format
+msgid "Name"
+msgstr ""
+
+#. module: custom_account_report
+#: code:addons/custom_account_report/models/account_general_ledger.py:0
+#, python-format
+msgid "Partner"
+msgstr ""
+
+#. module: custom_account_report
+#: code:addons/custom_account_report/models/account_partner_ledger.py:0
+#, python-format
+msgid "Partner Ledger"
+msgstr ""
+
+#. module: custom_account_report
+#: code:addons/custom_account_report/models/res_partner.py:0
+#: model:ir.actions.client,name:custom_account_report.action_account_report_partner_ledger2
+#: model:ir.model,name:custom_account_report.model_account_partner_ledger2
+#: model:ir.ui.menu,name:custom_account_report.menu_action_account_report_partner_ledger2
+#: model_terms:ir.ui.view,arch_db:custom_account_report.partner_view_buttons2
+#, python-format
+msgid "Partner Ledger 2"
+msgstr "تقرير العملاء"
+
+#. module: custom_account_report
+#: code:addons/custom_account_report/models/account_partner_ledger.py:0
+#, python-format
+msgid "Payable"
+msgstr ""
+
+#. module: custom_account_report
+#: code:addons/custom_account_report/models/account_partner_ledger.py:0
+#, python-format
+msgid "Receivable"
+msgstr ""
+
+#. module: custom_account_report
+#: code:addons/custom_account_report/models/account_partner_ledger.py:0
+#, python-format
+msgid "Ref"
+msgstr ""
+
+#. module: custom_account_report
+#: code:addons/custom_account_report/models/account_general_ledger.py:0
+#, python-format
+msgid "Tax Amount"
+msgstr ""
+
+#. module: custom_account_report
+#: code:addons/custom_account_report/models/account_general_ledger.py:0
+#, python-format
+msgid "Tax Declaration"
+msgstr ""
+
+#. module: custom_account_report
+#: code:addons/custom_account_report/models/account_general_ledger.py:0
+#: code:addons/custom_account_report/models/account_partner_ledger.py:0
+#, python-format
+msgid "Total"
+msgstr ""
+
+#. module: custom_account_report
+#: code:addons/custom_account_report/models/account_general_ledger.py:0
+#, python-format
+msgid "Total %s"
+msgstr ""
+
+#. module: custom_account_report
+#: code:addons/custom_account_report/models/account_partner_ledger.py:0
+#, python-format
+msgid "Unknown Partner"
+msgstr ""
+
+#. module: custom_account_report
+#: code:addons/custom_account_report/models/res_partner.py:0
+#: code:addons/custom_account_report/models/res_partner.py:0
+#, python-format
+msgid "any"
+msgstr ""
