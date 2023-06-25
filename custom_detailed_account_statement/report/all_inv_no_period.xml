@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+
+    <record model="report.paperformat" id="custom_report_with_details_paperformat_report_for_all">
+      <field name="name">European A4 low margin</field>
+      <field name="default" eval="True"/>
+      <field name="format">custom</field>
+      <field name="page_height">350</field>
+      <field name="page_width">250</field>
+      <field name="orientation">Landscape</field>
+      <field name="margin_top">0</field>
+      <field name="margin_bottom">15</field>
+      <field name="margin_left">3</field>
+      <field name="margin_right">3</field>
+      <field name="header_line" eval="False"/>
+      <field name="header_spacing">60</field>
+      <field name="dpi">90</field>
+    </record>
+
+    <record id="custom_report_for_all_no_period" model="ir.actions.report">
+      <field name="name">Journal Items Report</field>
+      <field name="model">journal.wizard</field>
+      <field name="report_type">qweb-pdf</field>
+      <field name="report_name">custom_detailed_account_statement.template_custom_report_for_all_no_period</field>
+      <field name="report_file">custom_detailed_account_statement.template_custom_report_for_all_no_period</field>
+      <field name="binding_model_id" ref="model_journal_wizard"/>
+      <field name="binding_type">report</field>
+      <field name="paperformat_id" ref="custom_report_with_details_paperformat_report_for_all"/>
+    </record>
+
+    <template id="template_custom_report_for_all_no_period">
+      <t t-call="web.html_container">
+        <t t-call="web.external_layout">
+          <!--        <t t-call="web.basic_layout">-->
+          <!--          <t t-foreach="move_lines" t-as="line">-->
+          <div class="page" style="direction: ltr;">
+            <div style="border-top:0px;margin:0px 0px 0px 0px;">
+              <div class="row">
+                <!--header-->
+                <div class="col-md-10">
+                  <img src="custom_detailed_account_statement/static/description/img/ir_logo.png"
+                       style="top:0px;width:100%;height:200px;" alt="Logo"/>
+                </div>
+                <!--                  <div class="col-9 text-right" style="margin-top:22px;" t-field="company.report_header" name="moto"/>-->
+              </div>
+
+            </div>
+
+            <style>
+              @font-face {
+              font-family: 'Tajawal-Regular';
+              src: local('Tajawal-Regular'), local('Tajawal-Regular'),
+              url(/custom_detailed_account_statement/static/src/fonts/cairo/Cairo-SemiBold.ttf)
+              format('opentype');
+              }
+              .font_tajawal{
+              font-family: Tajawal-Regular;
+              }
+              tr:nth-child(even) {
+              background-color: #eee;
+              }
+              tr:nth-child(odd) {
+              background-color: #fff;
+              }
+            </style>
+            <head>
+              <style>
+                table, th, td {
+                border: 1px solid black;
+                }
+              </style>
+            </head>
+            <t t-set="seq" t-value="1"/>
+            <!--            <table width="40%"-->
+            <!--                   style="border-top:0px;color:#d0474a;background-color: #D3D3D3;font-size:28px;text-align:center;margin:0px 0px 0px 480px;">-->
+            <!--              <tr>-->
+            <!--                <th>طباعـة فاتـورة التخليـص بالتفاصيــل</th>-->
+            <!--              </tr>-->
+            <!--            </table>-->
+            <!--            <br/>-->
+            <!--            <br/>-->
+            <br/>
+            <table width="40%" class='styled-table mt-2 font_tajawal'
+                   style="border-top:0px;color:black;font-size:22px;text-align:center;margin:0px 0px 0px 460px;;direction: ltr;">
+              <tr>
+                <th>م/فاتــورة كشـــف حســـاب</th>
+              </tr>
+            </table>
+            <br/>
+            <br/>
+            <table width="100%" class='styled-table mt-2 font_tajawal' style=";direction: ltr;">
+              <tr style="text-align:center">
+                <td style="max-width: 10px;" class="text-center">
+                  <span t-esc="date_now"/>
+                </td>
+                <td class="text-center"
+                    style="background-color:#febf00; color:#060606;width: 10%; font-weight: bold;">
+                  تاريخ اصدار الكشــف
+                </td>
+                <td style="max-width: 20px;" class="text-center">
+                  <span t-esc="partner"/>
+                </td>
+                <td class="text-center"
+                    style="background-color:#febf00; color:#060606;width: 20%; font-weight: bold;">اســم المخلــص
+                </td>
+              </tr>
+            </table>
+            <br/>
+            <br/>
+            <table class='styled-table mt-2 font_tajawal'
+                   style="border-collapse: collapse;border: 2px solid #ddd;font-size:20px; width:100%;padding-top:0;margin-top:0;direction: ltr;">
+              <thead>
+                <tr class="thead-light" style="padding:0px; margin:0px;border-top: 2px solid #ddd;height: 40px">
+
+                  <th class="text-center"
+                      style="background-color:#febf00; color:#060606;width: 11%; font-weight: bold;height: 40px">
+                    <!--                    <br/>-->
+                    المبلغ المتبقي بالدينـار
+                  </th>
+                  <th class="text-center"
+                      style="background-color:#febf00; color:#060606;width: 11%; font-weight: bold;height: 40px">
+                    <!--                    <br/>-->
+                    المبلغ المتبقي بالدولار
+                  </th>
+                  <th class="text-center"
+                      style="background-color:#febf00; color:#060606;width: 11%; font-weight: bold;height: 40px">
+                    <!--                    <br/>-->
+                    المبلغ الواصل بالدينـار
+                  </th>
+                  <th class="text-center"
+                      style="background-color:#febf00; color:#060606;width: 11%; font-weight: bold;height: 40px">
+                    <!--                    <br/>-->
+                    المبلغ الواصل بالدولار
+                  </th>
+                  <th class="text-center"
+                      style="background-color:#febf00; color:#060606;width: 11%; font-weight: bold;height: 40px">
+                    <!--                    <br/>-->
+                    المبلغ بالدينـار
+                  </th>
+                  <th class="text-center"
+                      style="background-color:#febf00; color:#060606;width: 11%; font-weight: bold;height: 40px">
+                    <!--                    <br/>-->
+                    المبلغ بالدولار
+                  </th>
+                  <th class="text-center"
+                      style="background-color:#febf00; color:#060606;width: 11%; font-weight: bold;height: 40px">
+                    <!--                    <br/>-->
+                    عدد السيــارات
+                  </th>
+
+                  <th class="text-center"
+                      style="background-color:#febf00; color:#060606;width: 11%; font-weight: bold;height: 40px">
+                    <!--                    <br/>-->
+                    اسم المـادة
+                  </th>
+                  <th class="text-center"
+                      style="background-color:#febf00; color:#060606;width: 10%; font-weight: bold;height: 40px">
+                    <!--                    <br/>-->
+                    التاريـخ
+                  </th>
+                  <th class="text-center"
+                      style="background-color:#febf00; color:#060606;width: 2%; font-weight: bold;height: 40px">
+                    <!--                    <br/>-->
+                    #
+                  </th>
+                </tr>
+              </thead>
+              <tbody class="sale_tbody">
+                <t t-set="subtotal_for_dollar" t-value="0"/>
+                <t t-set="subtotal_for_another" t-value="0"/>
+                <t t-set="sum_unpaid_in" t-value="0"/>
+                <t t-set="sum_unpaid_in_dollar" t-value="0"/>
+                <t t-set="sum_total_paid" t-value="0"/>
+                <t t-set="sum_total_paid_in_dollar" t-value="0"/>
+
+                <t t-set="i" t-value="1"/>
+                <t t-foreach="move_lines" t-as="doc3" style="height: 40px">
+                  <t t-set="subtotal_for_dollar" t-value="subtotal_for_dollar + doc3['total_all_dollar']"/>
+                  <t t-set="subtotal_for_another" t-value="subtotal_for_another + doc3['total_all']"/>
+                  <t t-set="sum_unpaid_in" t-value="sum_unpaid_in + doc3['unpaid_in']"/>
+                  <t t-set="sum_unpaid_in_dollar" t-value="sum_unpaid_in_dollar + doc3['unpaid_in_dollar']"/>
+                  <t t-set="sum_total_paid" t-value="sum_total_paid + doc3['total_paid']"/>
+                  <t t-set="sum_total_paid_in_dollar"
+                     t-value="sum_total_paid_in_dollar + doc3['total_paid_in_dollar']"/>
+                  <!--                  <t t-set="i" t-value="i + 1"/>-->
+                  <tr style="height: 40px">
+                    <td style="background-color:#FFFFFF;text-align:center;border: 2px solid #ddd;">
+                      <span t-esc="doc3['unpaid_in']"/>ع.د
+                    </td>
+                    <td style="background-color:#FFFFFF;text-align:center;border: 2px solid #ddd;">
+                      <span t-esc="doc3['unpaid_in_dollar']"/>$
+                    </td>
+                    <td style="background-color:#FFFFFF;text-align:center;border: 2px solid #ddd;">
+                      <span t-esc="doc3['total_paid']"/>ع.د
+                    </td>
+                    <td style="background-color:#FFFFFF;text-align:center;border: 2px solid #ddd;">
+                      <span t-esc="doc3['total_paid_in_dollar']"/>$
+                    </td>
+                    <td style="background-color:#FFFFFF;text-align:center;border: 2px solid #ddd;">
+                      <span t-esc="doc3['total_all']"/>ع.د
+                    </td>
+                    <td style="background-color:#FFFFFF;text-align:center;border: 2px solid #ddd;">
+                      <span t-esc="doc3['total_all_dollar']"/>$
+                    </td>
+                    <td style="background-color:#FFFFFF;text-align:center;border: 2px solid #ddd;">
+                      <span t-esc="doc3['num_of_cars']"/>
+                    </td>
+                    <td style="background-color:#FFFFFF;text-align:center;border: 2px solid #ddd;">
+                      <span t-esc="doc3['name_of_product']"/>
+                    </td>
+                    <td style="background-color:#FFFFFF;text-align:center;border: 2px solid #ddd;">
+                      <span t-esc="doc3['custom_date']"/>
+                    </td>
+                    <td style="background-color:#FFFFFF;text-align:center;border: 2px solid #ddd;">
+                      <span t-esc="i"/>
+                      <t t-set="i" t-value="i+1"/>
+                    </td>
+                    <!--                    <td style="background-color:#FFFFFF;text-align:center;border: 2px solid #ddd;">-->
+                    <!--                      <span t-esc="doc3['custom_date']"/>-->
+                    <!--                    </td>-->
+                  </tr>
+                </t>
+                <tr style="height: 40px">
+                  <td style="background-color:#FFFFFF;text-align:center;border: 2px solid #ddd;font-weight: bold;">
+                    <span t-esc="sum_unpaid_in"/>ع.د
+                  </td>
+                  <td style="background-color:#FFFFFF;text-align:center;border: 2px solid #ddd;font-weight: bold;">
+                    <span t-esc="sum_unpaid_in_dollar"/>$
+                  </td>
+                  <td style="background-color:#FFFFFF;text-align:center;border: 2px solid #ddd;font-weight: bold;">
+                    <span t-esc="sum_total_paid"/>ع.د
+                  </td>
+                  <td style="background-color:#FFFFFF;text-align:center;border: 2px solid #ddd;font-weight: bold;">
+                    <span t-esc="sum_total_paid_in_dollar"/>$
+                  </td>
+                  <!--                  <td style="background-color:#FFFFFF;text-align:center;border: 2px solid #ddd;font-weight: bold;">-->
+                  <!--                    &lt;!&ndash;                    <span t-esc="subtotal_for_another"/>ع.د&ndash;&gt;-->
+                  <!--                  </td>-->
+                  <td style="background-color:#FFFFFF;text-align:center;border: 2px solid #ddd;font-weight: bold;">
+                    <span t-esc="subtotal_for_another"/>ع.د
+                  </td>
+                  <td style="background-color:#FFFFFF;text-align:center;border: 2px solid #ddd;font-weight: bold;">
+                    <span t-esc="subtotal_for_dollar"/>
+                    $
+                  </td>
+                  <td style="background-color:#febf00;text-align:center;border: 2px solid #ddd;font-weight: bold;">
+                    المجمـوع الكلي
+                  </td>
+                  <!--                  <td></td>-->
+                  <!--                  <td></td>-->
+                  <!--                  <td></td>-->
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <!--          </t>-->
+        </t>
+      </t>
+
+    </template>
+
+
+  </data>
+</odoo>
