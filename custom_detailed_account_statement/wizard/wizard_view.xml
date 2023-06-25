@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+
+    <record id="view_journal_wizard_form_pdf" model="ir.ui.view">
+      <field name="name">journal.wizard</field>
+      <field name="model">journal.wizard</field>
+      <field name="arch" type="xml">
+        <form>
+          <group>
+            <group>
+              <!--              <label for="all_inv" string="Print All" style="font-weight:bold;"/>-->
+              <field name="all_inv"/>              <!--            <field name="custom_choose" widget="radio" required="1"/>-->
+              <!--            <field name="account_id"-->
+              <!--                   attrs="{'invisible' : ['|', ('custom_choose','=','all'), ('custom_choose','=',False)], 'required': [('custom_choose','=','one')]}"-->
+              <!--                   options="{'no_open':True,'no_create':True, 'no_quick_create':True, 'no_create_edit':True}"-->
+              <!--                   widget="selection"-->
+              <!--            />-->
+            </group>
+
+            <label for="the_partner_id" string="Partner" style="font-weight:bold;"/>
+            <field name="the_partner_id" required="1"
+                   options="{'no_create_edit': True,'no_create': True, 'no_open': True}"/>
+
+            <group>
+              <field name="start_date"
+                     attrs="{'required':[('all_inv','=', False)], 'invisible':[('all_inv','=',True)]}"/>
+              <!--            <field name="custom_choose" widget="radio" required="1"/>-->
+              <!--            <field name="account_id"-->
+              <!--                   attrs="{'invisible' : ['|', ('custom_choose','=','all'), ('custom_choose','=',False)], 'required': [('custom_choose','=','one')]}"-->
+              <!--                   options="{'no_open':True,'no_create':True, 'no_quick_create':True, 'no_create_edit':True}"-->
+              <!--                   widget="selection"-->
+              <!--            />-->
+            </group>
+            <group>
+              <!--              required="1" -->
+              <field name="end_date" attrs="{'required':[('all_inv','=', False)], 'invisible':[('all_inv','=',True)]}"/>
+            </group>
+          </group>
+
+          <footer>
+            <button name="get_general_account_statement_returns_report" string="Get PDF" type="object"
+                    class="oe_highlight" attrs="{'invisible':[('all_inv','=',True)]}"/>
+            <button name="get_report_with_details_returns_report" string="Get PDF With Details" type="object"
+                    class="oe_highlight" attrs="{'invisible':[('all_inv','=',True)]}"/>
+            <button name="get_all_report_for_all_inv_paid" string="Get All" type="object"
+                    class="oe_highlight" attrs="{'invisible':[('all_inv','=',False)]}"/>
+            <button special="cancel" string="Cancel" data-hotkey="z" type="object" class="btn-secondary"/>
+          </footer>
+
+        </form>
+      </field>
+    </record>
+
+    <record id="action_journal_wizard_pdf" model="ir.actions.act_window">
+      <field name="name">General Account Statement Wizard Report</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="res_model">journal.wizard</field>
+      <field name="view_mode">form</field>
+      <field name="target">new</field>
+    </record>
+
+    <menuitem
+            id="menu_action_journal_wizard_pdf"
+            name="General Account Statement Wizard Reports"
+            parent="account.menu_finance_payables"
+            sequence="111"
+            action="custom_detailed_account_statement.action_journal_wizard_pdf"
+    />
+
+  </data>
+</odoo>
