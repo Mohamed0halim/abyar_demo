@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+    <record id="purchase_order_form_inherit_id" model="ir.ui.view">
+      <field name="name">Purchase Order Custom</field>
+      <field name="model">purchase.order</field>
+      <field name="inherit_id" ref="purchase.purchase_order_form"/>
+      <field name="arch" type="xml">
+        <xpath expr="//notebook/page[@name='products']//field[@name='order_line']" position="after">
+          <field name="vendor_line" widget="section_and_note_one2many" mode="tree,kanban"
+                 context="{'default_state': 'draft'}" attrs="{'readonly': [('state', 'in', ('done', 'cancel'))]}">
+            <tree string="Vendor Order Lines" editable="bottom">
+              <field name="product_id"/>
+              <field name="vendor_name"/>
+              <field name="currency" options="{'no_create': True, 'no_open': True}" id="company_currency"
+                     context="{'active_test': True}"/>
+              <field name="price"/>
+            </tree>
+          </field>
+        </xpath>
+        <xpath expr="//notebook/page/field[@name='order_line']//field[@name='product_qty']" position="after">
+          <field name="unit_cost"/>
+          <field name="total_cost"/>
+        </xpath>
+      </field>
+    </record>
+  </data>
+</odoo>
+
