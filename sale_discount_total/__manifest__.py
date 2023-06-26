@@ -45,6 +45,7 @@ Module to manage discount on total amount in Sale.
         'views/invoice_report.xml',
         'views/sale_order_report.xml',
         'views/res_config_view.xml',
+        'views/inherit_currency.xml',
 
     ],
     'images': ['static/description/banner.png'],
