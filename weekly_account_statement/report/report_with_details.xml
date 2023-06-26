@@ -259,6 +259,9 @@
                     </td>
                     <td style="background-color:#FFFFFF;text-align:center;border: 2px solid #ddd;">
                       <span t-esc="doc3['quant']"/>
+                      <!--                      <br/>-->
+                      <span t-esc="doc3['uom']"/>
+                      <!--                      <span style="text-align:left;" t-esc="doc3['uom']"/>-->
                     </td>
                     <td style="background-color:#FFFFFF;text-align:center;border: 2px solid #ddd;">
                       <span t-esc="doc3['how_many_cars']"/>
@@ -299,7 +302,8 @@
                 <tr>
                   <td style="text-align:center;border: 2px solid #ddd;font-weight: bold;">
                     <!--                    <span t-esc="doc3['last_balance']"/>-->
-                    <span t-esc="last_balance"/>
+                    <!--                    <span t-esc="last_balance"/>-->
+                    <span t-esc="'{:,}'.format(last_balance)"/>
                   </td>
                   <!--                  <td style="background-color:#FFFFFF;text-align:center;border: 2px solid #ddd;font-weight: bold;">-->
                   <!--                    &lt;!&ndash;                    <span t-esc="subtotal_total_receipts"/>&ndash;&gt;-->
@@ -372,7 +376,8 @@
                   <!--                     t-value="subtotal_total_total + doc3['price_subtotal']"/>-->
                   <tr>
                     <td style="background-color:#FFFFFF;text-align:center;border: 2px solid #ddd;">
-                      <span t-esc="doc3['pay_amount']"/>
+                      <!--                      <span t-esc="doc3['pay_amount']"/>-->
+                      <span t-esc="'{:,}'.format(doc3['pay_amount'])"/>
                     </td>
                     <td style="background-color:#FFFFFF;text-align:center;border: 2px solid #ddd;" colspan="4">
                       <span t-esc="doc3['pay_memo']"/>
@@ -388,7 +393,9 @@
                 </t>
                 <tr>
                   <td style="text-align:center;border: 2px solid #ddd;font-weight: bold;">
-                    <span t-esc="doc3['total_for_amount']"/>
+                    <!--                    <span t-esc="doc3['total_for_amount']"/>-->
+                    <span t-esc="'{:,}'.format(doc3['total_for_amount'])"/>
+
                   </td>
                   <td colspan="6"
                       style="color:#000000;text-align:center;border: 2px solid #ddd;font-weight: bold;">
@@ -443,20 +450,19 @@
                 </div>
               </div>
             </div>
-            <br/>
-            <br/>
-            <div class="row" style="margin-left: 100px;">
+<!--            <br/>-->
+            <div class="row" style="margin-left: 70px;">
               <div class="col-2">
                 <div class="text-left">
                   <img src="weekly_account_statement/static/description/img/done.png"
-                       style="top:0px;width:50%;height:120px;"/>
+                       style="top:0px;width:300%;height:150px;"/>
                 </div>
               </div>
             </div>
-<!--            <div class="row" style="direction: ltr;margin-left: 100px;">-->
-<!--              <img src="weekly_account_statement/static/description/img/done.png"-->
-<!--                   style="top:0px;width:40%;height:100px;"/>-->
-<!--            </div>-->
+            <!--            <div class="row" style="direction: ltr;margin-left: 100px;">-->
+            <!--              <img src="weekly_account_statement/static/description/img/done.png"-->
+            <!--                   style="top:0px;width:40%;height:100px;"/>-->
+            <!--            </div>-->
           </div>
           <!--          </t>-->
           <div class="footer" style="margin-left: 10px;">
