@@ -199,9 +199,9 @@
 
                   <tr>
                     <td style="background-color:#FFFFFF;text-align:center;border: 2px solid #ddd;">
-                      <span t-esc="total_fees_and_recipts_for_each_line"
-                            t-options='{"widget": "float", "precision": 0}'/>
-                      <!--                      <span t-esc="'{:,}'.format(total_fees_and_recipts_for_each_line)"/>-->
+                      <!--                      <span t-esc="total_fees_and_recipts_for_each_line"-->
+                      <!--                            t-options='{"widget": "float", "precision": 3}'/>-->
+                      <span t-esc="'{:,}'.format(total_fees_and_recipts_for_each_line)"/>
 
                     </td>
                     <td style="background-color:#FFFFFF;text-align:center;border: 2px solid #ddd;">
@@ -236,7 +236,8 @@
                 </t>
                 <tr>
                   <td style="text-align:center;border: 2px solid #ddd;font-weight: bold;">
-                    <span t-esc="subtotal_total_total" t-options='{"widget": "float", "precision": 0}'/>
+                    <!--                    <span t-esc="subtotal_total_total" t-options='{"widget": "float", "precision": 0}'/>-->
+                    <span t-esc="'{:,}'.format(subtotal_total_total)"/>
                     <!--                    <span t-esc="'{:,}'.format(subtotal_total_total)"/>-->
                   </td>
                   <td style="text-align:center;border: 2px solid #ddd;font-weight: bold;">
@@ -366,12 +367,12 @@
               <br/>
               <br/>
             </div>
-            <br/>
-            <div class="row" style="margin-left: 100px;">
+<!--            <br/>-->
+            <div class="row" style="margin-left: 80px;">
               <div class="col-2">
                 <div class="text-left">
                   <img src="ageneral_weekly_account_statement_for_the_vendor/static/description/img/done.png"
-                       style="top:0px;width:210%;height:120px;"/>
+                       style="top:0px;width:300%;height:170px;"/>
                 </div>
               </div>
             </div>
