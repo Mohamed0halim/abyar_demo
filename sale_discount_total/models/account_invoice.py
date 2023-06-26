@@ -165,8 +165,21 @@ class AccountInvoice(models.Model):
                 if rec.currency_id:
                     if rec.currency_id.id != self.env.ref('base.main_company').currency_id.id:
                         # print('rec.acustom_customer_balance', rec.acustom_customer_balance, rec.currency_id.rate_ids[0].company_rate)
-                        net_balance = rec.acustom_customer_balance * rec.currency_id.rate_ids[0].company_rate
-                        rec.acustom_customer_balance = math.trunc(net_balance)
+                        # net_balance = rec.acustom_customer_balance * rec.currency_id.rate_ids[0].company_rate
+                        # rec.acustom_customer_balance = math.trunc(net_balance)
+                        amount = 0
+                        for l in account_move_line:
+                            if l.currency_id.id != rec.currency_id.id:
+                                amount += l.amount_currency * rec.currency_id.rate_ids[0].company_rate
+                                # print('rec.acustom_customer_balance', l.amount_currency, rec.currency_id.rate_ids[0].company_rate)
+                                # print('amount', amount)
+                                # net_balance = rec.acustom_customer_balance * rec.currency_id.rate_ids[0].company_rate
+                                # rec.acustom_customer_balance = math.trunc(net_balance)
+                                # print('_amount', l.amount_currency)
+                                # print('_amount', l.currency_id)
+                            else:
+                                amount += l.amount_currency
+                        rec.acustom_customer_balance = amount
                     # if rec.currency_id.id == self.env.ref('base.main_company').currency_id.id:
                     #     rec.acustom_customer_balance = rec.acustom_customer_balance
                     # else:
@@ -187,7 +200,7 @@ class AccountInvoice(models.Model):
                      ('balance', '!=', 0),
                      ('account_id.reconcile', '=', True),
                      ])
-                # print('account_move_line', account_move_line)
+                print('account_move_line', account_move_line)
                 debit = sum(account_move_line.mapped('debit'))
                 # print('debit', debit)
                 credit = sum(account_move_line.mapped('credit'))
@@ -195,8 +208,28 @@ class AccountInvoice(models.Model):
                 rec.final_customer_balance = debit - credit
                 if rec.currency_id:
                     if rec.currency_id.id != self.env.ref('base.main_company').currency_id.id:
-                        net_balance = rec.final_customer_balance * rec.currency_id.rate_ids[0].company_rate
-                        rec.final_customer_balance = math.trunc(net_balance)
+                        # net_balance = rec.final_customer_balance * rec.currency_id.rate_ids[0].company_rate
+                        # rec.final_customer_balance = math.trunc(net_balance)
+                        # debit2 = sum(account_move_line.mapped('debit'))
+                        # print('debit', debit)
+                        # credit2 = sum(account_move_line.mapped('credit'))
+                        # print('credit', credit)
+                        # rec.final_customer_balance = debit2 - credit2
+                        # rec.final_customer_balance = debit2 - credit2
+                        amount = 0
+                        for l in account_move_line:
+                            if l.currency_id.id != rec.currency_id.id:
+                                amount += l.amount_currency * rec.currency_id.rate_ids[0].company_rate
+                                # print('rec.acustom_customer_balance', l.amount_currency,
+                                #       rec.currency_id.rate_ids[0].company_rate)
+                                # print('amount', amount)
+                                # net_balance = rec.acustom_customer_balance * rec.currency_id.rate_ids[0].company_rate
+                                # rec.acustom_customer_balance = math.trunc(net_balance)
+                                # print('_amount', l.amount_currency)
+                                # print('_amount', l.currency_id)
+                            else:
+                                amount += l.amount_currency
+                        rec.final_customer_balance = amount
             else:
                 rec.final_customer_balance = rec.final_customer_balance or 0
 
@@ -207,7 +240,7 @@ class AccountInvoice(models.Model):
 
     final_customer_balance = fields.Float(string="The final balance", required=False, readonly=True,
                                             compute='get_final_customer_balance', store=True, copy=False ,
-                                            tracking=True)
+                                            tracking=True, digits=(16, 9))
 
     @api.onchange('discount_type', 'discount_rate', 'invoice_line_ids')
     def supply_rate(self):

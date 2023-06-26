@@ -82,6 +82,8 @@ class JournalItemsWizard(models.TransientModel):
                 #     print('create_date==', r.create_date, r)
                 if last_inv_for_same_partner:
                     last_balance = last_inv_for_same_partner.final_customer_balance
+                    if last_balance < 0:
+                        last_balance = last_balance * -1
                 # create_date
                 # current_record = self.env['account.move'].browse(self.env.context.get('active_id'))
                 # print('current_record1==', current_record1)
@@ -94,6 +96,7 @@ class JournalItemsWizard(models.TransientModel):
                         'product_id': l.product_id.name,
                         'how_many_cars': l.how_many_cars,
                         'quant': l.quantity,
+                        'uom': l.product_uom_id.name,
                         'price': l.price_unit,
                         'price_subtotal': l.price_subtotal,
                     }

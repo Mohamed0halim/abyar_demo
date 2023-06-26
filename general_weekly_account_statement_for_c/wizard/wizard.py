@@ -72,6 +72,8 @@ class GeneralJournalItems(models.TransientModel):
                 limit=1)
                 if last_inv_for_same_partner:
                     last_balance = last_inv_for_same_partner.final_customer_balance
+                    if last_balance < 0:
+                        last_balance = last_balance * -1
                     last_balance_date = last_inv_for_same_partner.invoice_date
         if self.the_partner_id.id:
             domain.append(('partner_id.id', '=', self.the_partner_id.id))
