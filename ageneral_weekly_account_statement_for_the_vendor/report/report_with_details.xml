@@ -259,6 +259,8 @@
                   <td style="text-align:center;border: 2px solid #ddd;font-weight: bold;">
                     <!--                    <span t-esc="doc3['last_balance']"/>-->
                     <span t-esc="last_balance"/>
+                    <!--                    <span t-esc="'{:,}'.format(last_balance)"/>-->
+                    <!--                    <span t-esc="last_balance" t-options='{"widget": "float", "precision": 2}'/>-->
                   </td>
                   <td colspan="6"
                       style="color:#000000;text-align:center;border: 2px solid #ddd;font-weight: bold;">
@@ -271,6 +273,7 @@
                     <t t-set="total_all"
                        t-value="subtotal_total_total + last_balance2"/>
                     <!--                       t-value="subtotal_total_total + doc3['last_balance']"/>-->
+                    <!--                    <span t-esc="total_all" t-options='{"widget": "float", "precision": 2}'/>-->
                     <!--                    <span t-esc="total_all" t-options='{"widget": "float", "precision": 2}'/>-->
                     <span t-esc="'{:,}'.format(total_all)"/>
                   </td>
@@ -367,7 +370,7 @@
               <br/>
               <br/>
             </div>
-<!--            <br/>-->
+            <!--            <br/>-->
             <div class="row" style="margin-left: 80px;">
               <div class="col-2">
                 <div class="text-left">
