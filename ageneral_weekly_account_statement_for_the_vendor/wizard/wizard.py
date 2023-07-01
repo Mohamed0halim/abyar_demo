@@ -103,11 +103,18 @@ class JournalItemsWizard(models.TransientModel):
                     last_balance = last_inv_for_same_partner.final_customer_balance
                     if last_balance < 0:
                         last_balance = last_balance * -1
+                frac = last_balance - int(last_balance)
+                if frac < 0.5:
+                    last_balance = int(last_balance)
+                else:
+                    last_balance = last_balance
+                # last_balance = float(last_balance)
+
                 # create_date
                 # current_record = self.env['account.move'].browse(self.env.context.get('active_id'))
                 # print('current_record1==', current_record1)
                 # print('invoice_line_ids==', current_record1.invoice_line_ids)
-
+                # print(format(last_balance,","))
                 # total_fees_quant = 0
                 total_fees_and_receipts_quant = 0.0
                 for l in current_record1.invoice_line_ids:
@@ -149,6 +156,7 @@ class JournalItemsWizard(models.TransientModel):
                     }
                     lines_data.append(valss1)
                     name_of_bill = current_record1.name_of_bill
+        last_balance3 = format(last_balance, ",")
 
                     # print('lines_data==', lines_data)
         if self.the_partner_id.id:
@@ -210,6 +218,7 @@ class JournalItemsWizard(models.TransientModel):
                 unique_combinations.add(combination)
                 filtered_data.append(dictionary)
         # print('final =', filtered_data)
+
         data = {
             # 'invoice_lines': lines_data,
             'invoice_lines': filtered_data,
@@ -218,7 +227,8 @@ class JournalItemsWizard(models.TransientModel):
             'to': self.end_date,
             'partner': self.the_partner_id.name,
             'name_of_bill': name_of_bill,
-            'last_balance': self.to_add_commas(last_balance),
+            # 'last_balance': self.to_add_commas(last_balance),
+            'last_balance': last_balance3,
             'last_balance2': last_balance2,
         }
         # print('list_data==', list_data)

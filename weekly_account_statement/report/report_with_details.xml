@@ -6,7 +6,7 @@
       <field name="name">European A4</field>
       <field name="default" eval="True"/>
       <field name="format">custom</field>
-      <field name="page_height">270</field>
+      <field name="page_height">290</field>
       <field name="page_width">250</field>
       <field name="orientation">Portrait</field>
       <field name="margin_top">0</field>
@@ -411,7 +411,7 @@
 
                     <t t-set="total_all_for_customer" t-value="0"/>
                     <t t-set="total_all_for_customer"
-                       t-value="doc3['total_for_amount'] - total_all"/>
+                       t-value="total_all - doc3['total_for_amount']"/>
                     <span t-esc="total_all_for_customer" t-options='{"widget": "float", "precision": 2}'/>
 
                     <!--                    <span t-esc="subtotal_total_total"/>-->
