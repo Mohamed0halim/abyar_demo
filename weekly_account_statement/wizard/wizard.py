@@ -80,16 +80,16 @@ class JournalItemsWizard(models.TransientModel):
                 # print('last_inv_for_same_partner==', last_inv_for_same_partner)
                 # for r in last_inv_for_same_partner:
                 #     print('create_date==', r.create_date, r)
-                if last_inv_for_same_partner:
-                    # last_balance = last_inv_for_same_partner.final_customer_balance
-                    last_balance = current_record1.last_customer_balance_from_last_inv
-                    if last_balance < 0:
-                        last_balance = last_balance * -1
-                    frac = last_balance - int(last_balance)
-                    if frac < 0.5:
-                        last_balance = int(last_balance)
-                    else:
-                        last_balance = last_balance
+                # if last_inv_for_same_partner:
+                # last_balance = last_inv_for_same_partner.final_customer_balance
+                last_balance = current_record1.last_customer_balance_from_last_inv
+                if last_balance < 0:
+                    last_balance = last_balance * -1
+                frac = last_balance - int(last_balance)
+                if frac < 0.5:
+                    last_balance = int(last_balance)
+                else:
+                    last_balance = last_balance
 
                 # create_date
                 # current_record = self.env['account.move'].browse(self.env.context.get('active_id'))
