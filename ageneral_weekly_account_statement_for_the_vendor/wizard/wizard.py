@@ -100,7 +100,8 @@ class JournalItemsWizard(models.TransientModel):
                 # for r in last_inv_for_same_partner:
                 #     print('create_date==', r.create_date, r)
                 if last_inv_for_same_partner:
-                    last_balance = last_inv_for_same_partner.final_customer_balance
+                    # last_balance = last_inv_for_same_partner.final_customer_balance
+                    last_balance = current_record1.last_customer_balance_from_last_inv
                     if last_balance < 0:
                         last_balance = last_balance * -1
                 frac = last_balance - int(last_balance)
@@ -139,7 +140,7 @@ class JournalItemsWizard(models.TransientModel):
                     # total_fees_and_receipts_quant += l.quantity
                     total_fees_and_receipts_quant = l.price_subtotal
 
-                    # print('===', l.product_id)
+                    print('===', l.product_id)
                     valss1 = {
                         'date': current_record1.invoice_date,
                         'custom_date': l.custom_date,
@@ -190,38 +191,25 @@ class JournalItemsWizard(models.TransientModel):
         last_balance2 = last_balance
         last_balance = self.remove_decimal(last_balance)
         # print('lines_data==', lines_data)
+        # print('/'*20)
+        result = defaultdict(lambda: defaultdict(int))
+        # for item in lines_data:
+        for item in reversed(lines_data):
+            key = (item['pro_id'], item['custom_date'])
+            result[key]['total_fees'] += item['total_fees']
+            result[key]['total_receipts'] += item['total_receipts']
+            result[key]['how_many_cars'] = item['how_many_cars']
+            result[key]['product_id'] = item['product_id']
 
-        summed_dict = defaultdict(float)
-        summed_dict2 = defaultdict(float)
-        result = []
-
-        for dictionary in lines_data:
-            compound_key = (dictionary['pro_id'])
-            summed_dict[compound_key] += dictionary['total_fees']
-            summed_dict2[compound_key] += dictionary['total_receipts']
-
-        for dictionary in lines_data:
-            compound_key = (dictionary['pro_id'])
-            summed_value = summed_dict[compound_key]
-            summed_value2 = summed_dict2[compound_key]
-            dictionary['total_fees'] = summed_value
-            dictionary['total_receipts'] = summed_value2
-            result.append(dictionary)
-        # print('result//==', result)
-        # filtered_data
-        unique_combinations = set()
-        filtered_data = []
-
-        for dictionary in result:
-            combination = (dictionary['pro_id'])
-            if combination not in unique_combinations:
-                unique_combinations.add(combination)
-                filtered_data.append(dictionary)
-        # print('final =', filtered_data)
-
+        result_list = [
+            {'pro_id': key[0], 'custom_date': key[1], 'how_many_cars': result[key], 'product_id': result[key], **values}
+            for key, values in result.items()
+        ]
+        # print('result_list==', result_list)
         data = {
             # 'invoice_lines': lines_data,
-            'invoice_lines': filtered_data,
+            # 'invoice_lines': filtered_data,
+            'invoice_lines': result_list,
             'move_lines': list_data,
             'from': self.start_date,
             'to': self.end_date,

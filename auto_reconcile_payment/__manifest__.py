@@ -10,8 +10,7 @@
     "website":'',
     'category':"Accounting",
     'summary':"",
-    "depends": [
-        "account",
+    "depends": [ 'base', "account",
     ],
     'data': [
         'security/ir.model.access.csv',

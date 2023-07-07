@@ -7,7 +7,7 @@
     'summary': 'Editing Accounting ',
     'description': "",
     'website': 'https://www.odoo.com/app/inventory',
-    'depends': ['account', 'purchase', 'sale', 'stock'],
+    'depends': ['base', 'account', 'purchase', 'sale', 'stock'],
     'sequence': -100,
     'data': [
         'views/partner_view.xml',

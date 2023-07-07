@@ -14,7 +14,7 @@
     'website': "https://brainstation-23.com/",
     'category': 'Purchase',
     'version': '15.0.1.0.0',
-    'depends': ['purchase', 'stock'],
+    'depends': ['base', 'purchase', 'stock'],
 
     'data': [
         'views/setting.xml',

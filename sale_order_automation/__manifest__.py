@@ -15,7 +15,7 @@
     'website': 'https://www.craftsync.com/',
     'license': 'LGPL-3',
     'support':'info@craftsync.com',
-    'depends' : ['sale_management','stock'],
+    'depends' : ['base', 'sale_management', 'stock'],
     'data': [
         'views/stock_warehouse.xml',
     ],

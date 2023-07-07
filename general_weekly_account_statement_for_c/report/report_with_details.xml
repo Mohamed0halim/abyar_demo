@@ -180,8 +180,8 @@
                   <!--                    </td>-->
                   <td style="background-color:#FFFFFF;text-align:center;border: 2px solid #ddd;">
                     <!--                    <span t-esc="last_balance"/>-->
-                                        <span t-esc="'{:,}'.format(last_balance)"/>
-<!--                    <span t-esc="last_balance" t-options='{"widget": "float", "precision": 2}'/>-->
+                    <span t-esc="'{:,}'.format(last_balance)"/>
+                    <!--                    <span t-esc="last_balance" t-options='{"widget": "float", "precision": 2}'/>-->
                   </td>
                   <td style="background-color:#FFFFFF;text-align:center;border: 2px solid #ddd;">
                     <!--                    <span t-esc="doc3['last_balance']"/>-->
@@ -229,8 +229,8 @@
                 </tr>
                 <tr>
                   <td style="height: 30px;text-align:center;border: 2px solid #ddd;font-weight: bold;">
-                                        <span t-esc="'{:,}'.format(total_total)"/>
-<!--                    <span t-esc="total_total" t-options='{"widget": "float", "precision": 2}'/>-->
+                    <span t-esc="'{:,}'.format(total_total)"/>
+                    <!--                    <span t-esc="total_total" t-options='{"widget": "float", "precision": 2}'/>-->
                   </td>
                   <td colspan="2" style="color:#000000;text-align:center;border: 2px solid #ddd;font-weight: bold;">
                     المجمـوع

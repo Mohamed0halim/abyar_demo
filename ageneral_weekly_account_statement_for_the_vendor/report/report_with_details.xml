@@ -6,7 +6,7 @@
       <field name="name">European A4</field>
       <field name="default" eval="True"/>
       <field name="format">custom</field>
-      <field name="page_height">310</field>
+      <field name="page_height">350</field>
       <field name="page_width">250</field>
       <field name="orientation">Portrait</field>
       <field name="margin_top">0</field>
