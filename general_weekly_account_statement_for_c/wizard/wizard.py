@@ -23,7 +23,7 @@ class GeneralJournalItems(models.TransientModel):
         if self.env.context.get('active_id'):
             current_record1 = self.env['account.move'].search([('id', '=', self.env.context.get('active_id'))])
             # current_record = self.env['account.move'].browse(self.env.context.get('active_id'))
-            print('current_record1==', current_record1)
+            # print('current_record1==', current_record1)
             # print('current_record==', current_record)
             if current_record1:
                 res['the_partner_id'] = current_record1.partner_id.id
@@ -71,7 +71,8 @@ class GeneralJournalItems(models.TransientModel):
                 order='create_date DESC',
                 limit=1)
                 if last_inv_for_same_partner:
-                    last_balance = last_inv_for_same_partner.final_customer_balance
+                    # last_balance = last_inv_for_same_partner.final_customer_balance
+                    last_balance = current_record1.last_customer_balance_from_last_inv
                     if last_balance < 0:
                         last_balance = last_balance * -1
                     frac = last_balance - int(last_balance)
@@ -91,7 +92,7 @@ class GeneralJournalItems(models.TransientModel):
         total_for_amount = 0
         if move_lines:
             for p in move_lines:
-                print('p.date=', p.date)
+                # print('p.date=', p.date)
                 total_for_amount += p.amount
                 vals = {
                     'pay_date': p.date,

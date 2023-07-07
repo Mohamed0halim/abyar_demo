@@ -14,7 +14,7 @@
                         and group by options""",
     'version': '15.0',
     "license": "OPL-1",
-    'depends': ['sale_management'],
+    'depends': ['base', 'sale_management'],
     'demo': [],
     'data': [
         'views/order_line_image.xml',

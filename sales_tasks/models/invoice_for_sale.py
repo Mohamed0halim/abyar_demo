@@ -46,7 +46,7 @@ class CustomAccountMoveInherit(models.Model):
           _prepare_invoice_line_obj = self.env['account.move.line']
           # res = self._prepare_sbill_svendor_sname()
           request = self.env['account.move'].create(invoice_vals)
-          print('request', request)
+          # print('request', request)
           if request:
             request.action_post()
 

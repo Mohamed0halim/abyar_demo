@@ -29,7 +29,7 @@
     'maintainer': 'Cybrosys Techno Solutions',
     'company': 'Cybrosys Techno Solutions',
     'website': 'https://www.cybrosys.com',
-    'depends': ['stock'],
+    'depends': ['base', 'stock'],
     'data': [
         'security/ir.model.access.csv',
         'views/inventory_report.xml',

@@ -164,7 +164,7 @@ class CustomSaleOrder(models.Model):
                         'sprice': l.sprice,
                         # 'svendor_id': rec,
                     }))
-        print('line_obj', line_obj)
+        # print('line_obj', line_obj)
 
         invoice_vals = {
             'ref': self.client_order_ref or '',
@@ -191,5 +191,5 @@ class CustomSaleOrder(models.Model):
             'acc_vendor_line': line_obj,
 
         }
-        print('invoice_vals', invoice_vals)
+        # print('invoice_vals', invoice_vals)
         return invoice_vals

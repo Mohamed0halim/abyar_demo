@@ -28,7 +28,7 @@
     'maintainer': 'Cybrosys Techno Solutions',
     'images': ['static/description/banner.png'],
     'website': 'https://www.cybrosys.com',
-    'depends': ['stock'],
+    'depends': ['base', 'stock'],
     'data': [
         'views/brand_views.xml',
         'security/ir.model.access.csv',

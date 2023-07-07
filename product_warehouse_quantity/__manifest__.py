@@ -29,7 +29,7 @@
     'description': """
 """,
     'version': '1.0',
-    'depends': ['sale','stock'],
+    'depends': ['base', 'sale','stock'],
     'data': ['security/warehouse_security.xml','views/product_view.xml'],
     'images': ['static/description/banner.png'],
     'installable': True,
