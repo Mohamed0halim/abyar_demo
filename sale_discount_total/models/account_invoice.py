@@ -200,7 +200,7 @@ class AccountInvoice(models.Model):
                      ('balance', '!=', 0),
                      ('account_id.reconcile', '=', True),
                      ])
-                print('account_move_line', account_move_line)
+                # print('account_move_line', account_move_line)
                 debit = sum(account_move_line.mapped('debit'))
                 # print('debit', debit)
                 credit = sum(account_move_line.mapped('credit'))
@@ -242,11 +242,6 @@ class AccountInvoice(models.Model):
                                             compute='get_final_customer_balance', store=True, copy=False ,
                                             tracking=True, digits=(16, 9))
 
-
-    last_customer_balance_from_last_inv = fields.Float(string="المبلغ المتبقى من اخر فاتورة", required=False,
-                                          compute='get_last_customer_balance_from_last_inv', copy=False,
-                                          tracking=True, digits=(16, 9))
-
     @api.depends('partner_id')
     def get_last_customer_balance_from_last_inv(self):
         for rec in self:
@@ -254,18 +249,23 @@ class AccountInvoice(models.Model):
             if rec.partner_id:
                 # print('ddddddd', self.env.context.get('active_id'))
                 last_inv_for_same_partner = self.env['account.move'].search([('state', '=', 'posted'),
-                                                                             ('partner_id.id', '=', rec.partner_id.id),],
-                    order='create_date DESC')
-                # print('vvvvvvv', last_inv_for_same_partner)
-                # print('vvvvvvv', len(last_inv_for_same_partner))
-                # print('vvvvvvv', last_inv_for_same_partner.name)
+                                                                             ('partner_id.id', '=', rec.partner_id.id),
+                                                                             ('move_type', 'in', ('in_invoice', 'out_invoice'))],
+                                                                            order='create_date DESC')
+                # print('last_inv_for_same_partner', last_inv_for_same_partner, len(last_inv_for_same_partner))
                 if last_inv_for_same_partner:
-                    if len(last_inv_for_same_partner) > 1:
-                        # print('qqqqqq', last_inv_for_same_partner[1].name)
-                        # print('qqqqqq', last_inv_for_same_partner[1].id)
-                        rec.last_customer_balance_from_last_inv = last_inv_for_same_partner[1].final_customer_balance
-                    if len(last_inv_for_same_partner) == 1:
-                        rec.last_customer_balance_from_last_inv = last_inv_for_same_partner[0].final_customer_balance
+                    if len(last_inv_for_same_partner) >= 1:
+                        # print('qqqqqq', last_inv_for_same_partner[0].name)
+                        # print('v////', last_inv_for_same_partner[0].move_type)
+                        # rec.last_customer_balance_from_last_inv = last_inv_for_same_partner[1].final_customer_balance
+                        rec.last_customer_balance_from_last_inv = last_inv_for_same_partner[0].amount_total_signed
+                    # if len(last_inv_for_same_partner) == 1:
+                    #     # rec.last_customer_balance_from_last_inv = last_inv_for_same_partner[0].final_customer_balance
+                    #     rec.last_customer_balance_from_last_inv = last_inv_for_same_partner[0].amount_total
+
+    last_customer_balance_from_last_inv = fields.Float(string="المبلغ المتبقى من اخر فاتورة", store=True, required=False,
+                                          compute='get_last_customer_balance_from_last_inv', readonly=True, copy=False,
+                                          tracking=True, digits=(16, 9))
 
     @api.onchange('discount_type', 'discount_rate', 'invoice_line_ids')
     def supply_rate(self):
