@@ -259,6 +259,11 @@ class AccountInvoice(models.Model):
                         # print('v////', last_inv_for_same_partner[0].move_type)
                         # rec.last_customer_balance_from_last_inv = last_inv_for_same_partner[1].final_customer_balance
                         rec.last_customer_balance_from_last_inv = last_inv_for_same_partner[0].amount_total_signed
+                    if len(last_inv_for_same_partner) >= 2:
+                        # print('qqqqqq', last_inv_for_same_partner[0].name)
+                        # print('v////', last_inv_for_same_partner[0].move_type)
+                        # rec.last_customer_balance_from_last_inv = last_inv_for_same_partner[1].final_customer_balance
+                        rec.last_customer_balance_from_last_inv = last_inv_for_same_partner[0].final_customer_balance
                     # if len(last_inv_for_same_partner) == 1:
                     #     # rec.last_customer_balance_from_last_inv = last_inv_for_same_partner[0].final_customer_balance
                     #     rec.last_customer_balance_from_last_inv = last_inv_for_same_partner[0].amount_total
