@@ -253,7 +253,7 @@
                       <span t-esc="doc3['pay_date']"/>
                     </td>
                     <td style="background-color:#FFFFFF;text-align:center;border: 2px solid #ddd;">
-                      <!--                      <span t-esc="doc3['pay_date']"/>-->
+                      <span t-esc="doc3['pay_memo']"/>
                     </td>
                   </tr>
                 </t>
